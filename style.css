@@ -429,6 +429,9 @@ img { max-width: 100%; display: block; }
 .docker-badge { background: linear-gradient(135deg, #2496ED, #1A7BC5); font-size: 11px; }
 .flutter-badge { background: linear-gradient(135deg, #02569B, #0175C2); font-size: 12px; }
 .dart-badge { background: linear-gradient(135deg, #0175C2, #00B4AB); font-size: 16px; }
+.apple-badge { background: linear-gradient(135deg, #555555, #333333); }
+.kotlin-badge { background: linear-gradient(135deg, #7F52FF, #5C2EE0); }
+.reactnative-badge { background: linear-gradient(135deg, #61DAFB, #21A1C9); }
 .cert-thumb {
     width: 80px; height: 56px;
     object-fit: cover; object-position: center;
