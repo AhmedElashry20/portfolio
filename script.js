@@ -941,9 +941,28 @@
         initCommandPalette();
         initHeroTyping();
         initNavScroll();
+        initExpTabs();
 
         // Start the loader animation
         initLoader();
+    }
+
+    // ─── Experience Tabs ──────────────────────────────────────
+    function initExpTabs() {
+        const tabs = document.querySelectorAll('.exp-tab');
+        const panels = document.querySelectorAll('.exp-panel');
+        if (!tabs.length) return;
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const id = tab.dataset.exp;
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const target = document.querySelector('.exp-panel[data-exp="' + id + '"]');
+                if (target) target.classList.add('active');
+            });
+        });
     }
 
     // Boot when DOM is ready
