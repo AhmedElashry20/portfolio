@@ -203,6 +203,7 @@
         <h2 class="section-title"><span class="accent">#</span> projects()</h2>
         <div class="projects-filter">
             <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="binrabie">Bin Rabie</button>
             <button class="filter-btn" data-filter="web">Web</button>
             <button class="filter-btn" data-filter="mobile">Mobile</button>
             <button class="filter-btn" data-filter="enterprise">Enterprise</button>
@@ -211,7 +212,7 @@
         <div class="projects-grid">
 
             <!-- Bin Rabie Holding -->
-            <div class="project-card" data-category="web" data-gallery='["screenshots/holding1.png","screenshots/holding2.png","screenshots/holding3.png"]' data-title="Bin Rabie Holding Group">
+            <div class="project-card" data-category="web binrabie" data-gallery='["screenshots/holding1.png","screenshots/holding2.png","screenshots/holding3.png"]' data-title="Bin Rabie Holding Group">
                 <div class="project-img">
                     <img src="screenshots/holding1.png" alt="Bin Rabie Holding" loading="lazy">
                     <div class="project-screenshots">
@@ -258,7 +259,7 @@
             </div>
 
             <!-- Bin Rabie Express -->
-            <div class="project-card" data-category="web" data-gallery='["screenshots/express1.png","screenshots/express2.png","screenshots/express3.png"]' data-title="Bin Rabie Express">
+            <div class="project-card" data-category="web binrabie" data-gallery='["screenshots/express1.png","screenshots/express2.png","screenshots/express3.png"]' data-title="Bin Rabie Express">
                 <div class="project-img">
                     <img src="screenshots/express1.png" alt="Bin Rabie Express" loading="lazy">
                     <div class="project-screenshots">
@@ -283,7 +284,7 @@
             </div>
 
             <!-- Courier Management -->
-            <div class="project-card" data-category="enterprise">
+            <div class="project-card" data-category="enterprise binrabie">
                 <div class="project-img placeholder-img">
                     <div class="placeholder-content">
                         <span class="placeholder-icon">📦</span>
@@ -305,7 +306,7 @@
             </div>
 
             <!-- Bin Rabie Food -->
-            <div class="project-card" data-category="web" data-gallery='["screenshots/food1.png","screenshots/food2.png","screenshots/food3.png"]' data-title="Bin Rabie Food">
+            <div class="project-card" data-category="web binrabie" data-gallery='["screenshots/food1.png","screenshots/food2.png","screenshots/food3.png"]' data-title="Bin Rabie Food">
                 <div class="project-img">
                     <img src="screenshots/food1.png" alt="Bin Rabie Food" loading="lazy">
                     <div class="project-screenshots">
@@ -530,7 +531,7 @@
             </div>
 
             <!-- BinRubai ERP -->
-            <div class="project-card" data-category="enterprise">
+            <div class="project-card" data-category="enterprise binrabie">
                 <div class="project-img placeholder-img">
                     <div class="placeholder-content">
                         <span class="placeholder-icon">🏢</span>
@@ -949,7 +950,7 @@
             </div>
 
             <!-- Bin Rabie Courier Management -->
-            <div class="project-card" data-category="web enterprise">
+            <div class="project-card" data-category="web enterprise binrabie">
                 <div class="project-img placeholder-img">
                     <div class="placeholder-content">
                         <span class="placeholder-icon">🚚</span>
@@ -1069,7 +1070,7 @@
         <div class="certs-grid-detailed">
 
             <div class="cert-detail-card">
-                <div class="cert-badge google-badge">G</div>
+                <img src="certs/01_Google_Android_Developer.png" alt="Google Android Developer" class="cert-thumb" onclick="openLightbox(['certs/01_Google_Android_Developer.png'],0,'Google Associate Android Developer')">
                 <div class="cert-body">
                     <h4>Associate Android Developer</h4>
                     <p class="cert-issuer">Google Developers Certification</p>
@@ -1082,7 +1083,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge aws-badge">AWS</div>
+                <img src="certs/02_AWS_Developer_Associate.png" alt="AWS Developer" class="cert-thumb" onclick="openLightbox(['certs/02_AWS_Developer_Associate.png'],0,'AWS Certified Developer - Associate')">
                 <div class="cert-body">
                     <h4>AWS Certified Developer - Associate</h4>
                     <p class="cert-issuer">Amazon Web Services</p>
@@ -1095,7 +1096,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge aws-badge">AWS</div>
+                <img src="certs/03_AWS_Solutions_Architect.png" alt="AWS Solutions Architect" class="cert-thumb" onclick="openLightbox([&quot;certs/03_AWS_Solutions_Architect.png&quot;],0,&quot;AWS Solutions Architect&quot;)">
                 <div class="cert-body">
                     <h4>AWS Solutions Architect - Associate</h4>
                     <p class="cert-issuer">Amazon Web Services</p>
@@ -1108,7 +1109,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge meta-badge">M</div>
+                <img src="certs/04_Meta_React_Developer.png" alt="Meta Front-End Developer" class="cert-thumb" onclick="openLightbox([&quot;certs/04_Meta_React_Developer.png&quot;],0,&quot;Meta Front-End Developer&quot;)">
                 <div class="cert-body">
                     <h4>Meta Front-End Developer</h4>
                     <p class="cert-issuer">Coursera / Meta - Grade: 98.4%</p>
@@ -1121,7 +1122,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge harvard-badge">H</div>
+                <img src="certs/05_Harvard_CS50_Mobile.png" alt="Harvard CS50 Mobile" class="cert-thumb" onclick="openLightbox([&quot;certs/05_Harvard_CS50_Mobile.png&quot;],0,&quot;Harvard CS50 Mobile&quot;)">
                 <div class="cert-body">
                     <h4>CS50's Mobile App Development</h4>
                     <p class="cert-issuer">Harvard University / edX</p>
@@ -1134,7 +1135,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge scrum-badge">CSM</div>
+                <img src="certs/06_ScrumAlliance_CSM.png" alt="Certified ScrumMaster" class="cert-thumb" onclick="openLightbox([&quot;certs/06_ScrumAlliance_CSM.png&quot;],0,&quot;Certified ScrumMaster&quot;)">
                 <div class="cert-body">
                     <h4>Certified ScrumMaster (CSM)</h4>
                     <p class="cert-issuer">Scrum Alliance - SAFe Compatible</p>
@@ -1147,7 +1148,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge firebase-badge">F</div>
+                <img src="certs/07_Google_Firebase_Advanced.png" alt="Firebase Advanced Developer" class="cert-thumb" onclick="openLightbox([&quot;certs/07_Google_Firebase_Advanced.png&quot;],0,&quot;Firebase Advanced Developer&quot;)">
                 <div class="cert-body">
                     <h4>Firebase Advanced Developer</h4>
                     <p class="cert-issuer">Google Firebase - Expert Level</p>
@@ -1160,7 +1161,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge stanford-badge">S</div>
+                <img src="certs/08_Stanford_Algorithms.png" alt="Stanford Algorithms" class="cert-thumb" onclick="openLightbox([&quot;certs/08_Stanford_Algorithms.png&quot;],0,&quot;Stanford Algorithms&quot;)">
                 <div class="cert-body">
                     <h4>Algorithms Specialization</h4>
                     <p class="cert-issuer">Stanford University / Coursera - Grade: 97.8%</p>
@@ -1173,7 +1174,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge sans-badge">SANS</div>
+                <img src="certs/09_SANS_Mobile_Security.png" alt="SANS SEC575 Mobile Security" class="cert-thumb" onclick="openLightbox([&quot;certs/09_SANS_Mobile_Security.png&quot;],0,&quot;SANS SEC575 Mobile Security&quot;)">
                 <div class="cert-body">
                     <h4>SEC575: Mobile Application Security</h4>
                     <p class="cert-issuer">SANS Institute / GIAC</p>
@@ -1186,7 +1187,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge gcp-badge">GCP</div>
+                <img src="certs/10_Google_Cloud_Engineer.png" alt="Google Cloud Engineer" class="cert-thumb" onclick="openLightbox([&quot;certs/10_Google_Cloud_Engineer.png&quot;],0,&quot;Google Cloud Engineer&quot;)">
                 <div class="cert-body">
                     <h4>Associate Cloud Engineer</h4>
                     <p class="cert-issuer">Google Cloud Platform</p>
@@ -1199,7 +1200,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge pspo-badge">PSPO</div>
+                <img src="certs/11_ScrumOrg_PSPO.png" alt="PSPO I" class="cert-thumb" onclick="openLightbox([&quot;certs/11_ScrumOrg_PSPO.png&quot;],0,&quot;PSPO I&quot;)">
                 <div class="cert-body">
                     <h4>Professional Scrum Product Owner I</h4>
                     <p class="cert-issuer">Scrum.org - Score: 92.5%</p>
@@ -1212,7 +1213,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge udemy-badge">U</div>
+                <img src="certs/12_Udemy_Flutter_Dart.png" alt="Flutter & Dart Bootcamp" class="cert-thumb" onclick="openLightbox([&quot;certs/12_Udemy_Flutter_Dart.png&quot;],0,&quot;Flutter & Dart Bootcamp&quot;)">
                 <div class="cert-body">
                     <h4>Complete Flutter & Dart Bootcamp</h4>
                     <p class="cert-issuer">Udemy / Dr. Angela Yu - 65 Hours</p>
@@ -1225,7 +1226,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge ibm-badge">IBM</div>
+                <img src="certs/13_Python_DataScience_AI.png" alt="IBM Python Data Science" class="cert-thumb" onclick="openLightbox([&quot;certs/13_Python_DataScience_AI.png&quot;],0,&quot;IBM Python Data Science&quot;)">
                 <div class="cert-body">
                     <h4>Python for Data Science, AI & Development</h4>
                     <p class="cert-issuer">IBM / Coursera - Professional Certificate</p>
@@ -1238,7 +1239,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge oracle-badge">OCP</div>
+                <img src="certs/14_Oracle_Java_OCP.png" alt="Oracle Java OCP" class="cert-thumb" onclick="openLightbox([&quot;certs/14_Oracle_Java_OCP.png&quot;],0,&quot;Oracle Java OCP&quot;)">
                 <div class="cert-body">
                     <h4>Oracle Certified Professional - Java SE 11</h4>
                     <p class="cert-issuer">Oracle University - Score: 89%</p>
@@ -1251,7 +1252,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge microsoft-badge">MS</div>
+                <img src="certs/15_Microsoft_CSharp_dotNET.png" alt="Microsoft C# Azure" class="cert-thumb" onclick="openLightbox([&quot;certs/15_Microsoft_CSharp_dotNET.png&quot;],0,&quot;Microsoft C# Azure&quot;)">
                 <div class="cert-body">
                     <h4>Developing Solutions for Microsoft Azure</h4>
                     <p class="cert-issuer">Microsoft - C# / .NET Core / AZ-204</p>
@@ -1264,7 +1265,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge michigan-badge">C++</div>
+                <img src="certs/16_CPP_Systems_Programming.png" alt="C++ Systems Programming" class="cert-thumb" onclick="openLightbox([&quot;certs/16_CPP_Systems_Programming.png&quot;],0,&quot;C++ Systems Programming&quot;)">
                 <div class="cert-body">
                     <h4>C++ Systems Programming Specialization</h4>
                     <p class="cert-issuer">University of Michigan / Coursera - Grade: 96.2%</p>
@@ -1277,7 +1278,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge node-badge">JS</div>
+                <img src="certs/17_OpenJS_NodeJS_Developer.png" alt="Node.js JSNSD" class="cert-thumb" onclick="openLightbox([&quot;certs/17_OpenJS_NodeJS_Developer.png&quot;],0,&quot;Node.js JSNSD&quot;)">
                 <div class="cert-body">
                     <h4>OpenJS Node.js Developer (JSNSD)</h4>
                     <p class="cert-issuer">OpenJS Foundation / Linux Foundation</p>
@@ -1290,7 +1291,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge azure-badge">AZ</div>
+                <img src="certs/18_Microsoft_TypeScript_Azure.png" alt="TypeScript Azure" class="cert-thumb" onclick="openLightbox([&quot;certs/18_Microsoft_TypeScript_Azure.png&quot;],0,&quot;TypeScript Azure&quot;)">
                 <div class="cert-body">
                     <h4>TypeScript & Azure Development - AZ-204</h4>
                     <p class="cert-issuer">Microsoft Azure Developer Associate</p>
@@ -1303,7 +1304,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge postgres-badge">PG</div>
+                <img src="certs/19_EDB_PostgreSQL_Associate.png" alt="PostgreSQL Associate" class="cert-thumb" onclick="openLightbox([&quot;certs/19_EDB_PostgreSQL_Associate.png&quot;],0,&quot;PostgreSQL Associate&quot;)">
                 <div class="cert-body">
                     <h4>EDB PostgreSQL 13 Associate</h4>
                     <p class="cert-issuer">EnterpriseDB - Score: 91%</p>
@@ -1316,7 +1317,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge docker-badge">DCA</div>
+                <img src="certs/20_Docker_Certified_Associate.png" alt="Docker DCA" class="cert-thumb" onclick="openLightbox([&quot;certs/20_Docker_Certified_Associate.png&quot;],0,&quot;Docker DCA&quot;)">
                 <div class="cert-body">
                     <h4>Docker Certified Associate (DCA)</h4>
                     <p class="cert-issuer">Docker / Mirantis</p>
@@ -1329,7 +1330,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge flutter-badge">FL</div>
+                <img src="certs/21_Google_Flutter_Developer.png" alt="Flutter Certified Developer" class="cert-thumb" onclick="openLightbox([&quot;certs/21_Google_Flutter_Developer.png&quot;],0,&quot;Flutter Certified Developer&quot;)">
                 <div class="cert-body">
                     <h4>Flutter Certified Application Developer</h4>
                     <p class="cert-issuer">Google Flutter - Cross-Platform Development</p>
@@ -1342,7 +1343,7 @@
             </div>
 
             <div class="cert-detail-card">
-                <div class="cert-badge dart-badge">D</div>
+                <img src="certs/22_Google_Dart_Programming.png" alt="Dart Certified Developer" class="cert-thumb" onclick="openLightbox([&quot;certs/22_Google_Dart_Programming.png&quot;],0,&quot;Dart Certified Developer&quot;)">
                 <div class="cert-body">
                     <h4>Dart Certified Developer</h4>
                     <p class="cert-issuer">Google Dart Programming Language</p>
