@@ -427,6 +427,8 @@ img { max-width: 100%; display: block; }
 .azure-badge { background: linear-gradient(135deg, #0078D4, #005A9E); font-size: 12px; }
 .postgres-badge { background: linear-gradient(135deg, #336791, #1F4D6B); font-size: 12px; }
 .docker-badge { background: linear-gradient(135deg, #2496ED, #1A7BC5); font-size: 11px; }
+.flutter-badge { background: linear-gradient(135deg, #02569B, #0175C2); font-size: 12px; }
+.dart-badge { background: linear-gradient(135deg, #0175C2, #00B4AB); font-size: 16px; }
 .cert-body { flex: 1; min-width: 0; }
 .cert-body h4 {
     font-family: var(--mono); font-size: 14px;
