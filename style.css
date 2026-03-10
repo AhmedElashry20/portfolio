@@ -1173,6 +1173,148 @@ button {
 }
 
 
+/* ===== EXPERIENCE TIMELINE ===== */
+.exp-timeline {
+    position: relative;
+    padding-left: 32px;
+}
+
+.exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--card-border);
+}
+
+.exp-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+.exp-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 122, 204, 0.15);
+}
+
+.exp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.exp-card-left {
+    position: relative;
+}
+
+.exp-card-dot {
+    position: absolute;
+    left: -37px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--card-border);
+    border: 2px solid var(--sidebar-bg);
+    z-index: 1;
+}
+
+.exp-card-dot.active {
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.exp-card-left h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+    font-family: var(--sans);
+}
+
+.exp-card-role {
+    display: block;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    font-family: var(--mono);
+}
+
+.exp-card-loc {
+    display: block;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+}
+
+.exp-card-date {
+    font-size: 13px;
+    color: var(--comment);
+    font-family: var(--mono);
+    white-space: nowrap;
+    padding: 4px 10px;
+    background: var(--hover-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+}
+
+.exp-card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px 0;
+}
+
+.exp-card-body li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.exp-card-body li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.exp-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.exp-card-tags span {
+    font-size: 11px;
+    padding: 3px 10px;
+    background: var(--active-item);
+    color: var(--accent2);
+    border-radius: 2px;
+    font-family: var(--mono);
+}
+
+@media (max-width: 768px) {
+    .exp-card-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .exp-card-date {
+        align-self: flex-start;
+    }
+}
+
+
 /* ===== STACK SECTION ===== */
 .stack-grid {
     display: grid;
