@@ -28,7 +28,7 @@ const typingTexts = [
     'Senior Flutter Developer',
     'Full-Stack Engineer',
     'IT Infrastructure Specialist',
-    '30+ Apps in Production',
+    '36+ Apps in Production',
     '100K+ Active Users'
 ];
 let txtIdx = 0, charIdx = 0, deleting = false;
