@@ -127,3 +127,66 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+// ===== LIGHTBOX =====
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+const lbCounter = document.getElementById('lbCounter');
+let lbImages = [];
+let lbIndex = 0;
+
+function openLightbox(images, index, title) {
+    lbImages = images;
+    lbIndex = index;
+    lbImg.src = lbImages[lbIndex];
+    lbCaption.textContent = title || '';
+    lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function navigateLb(dir) {
+    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+    lbImg.src = lbImages[lbIndex];
+    lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', () => navigateLb(-1));
+document.getElementById('lbNext').addEventListener('click', () => navigateLb(1));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLb(-1);
+    if (e.key === 'ArrowRight') navigateLb(1);
+});
+
+// Attach gallery click to screenshot thumbnails
+document.querySelectorAll('.project-screenshots img').forEach(img => {
+    img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = img.closest('.project-card');
+        const gallery = JSON.parse(card.dataset.gallery || '[]');
+        const title = card.dataset.title || '';
+        const idx = Array.from(card.querySelectorAll('.project-screenshots img')).indexOf(img);
+        openLightbox(gallery, idx, title);
+    });
+});
+
+// Also open lightbox on main project image click
+document.querySelectorAll('.project-card[data-gallery] > .project-img > img').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+        const card = img.closest('.project-card');
+        const gallery = JSON.parse(card.dataset.gallery || '[]');
+        const title = card.dataset.title || '';
+        openLightbox(gallery, 0, title);
+    });
+});

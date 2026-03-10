@@ -60,6 +60,8 @@
 <section class="hero" id="hero">
     <div class="hero-grid"></div>
     <div class="container">
+        <div class="hero-layout">
+        <div class="hero-left">
         <p class="hero-prefix">// welcome to my portfolio</p>
         <h1 class="hero-name">Ahmed <span class="accent">Elashry</span></h1>
         <div class="hero-typing">
@@ -86,6 +88,14 @@
                 <span class="stat-num" data-count="100">0</span><span class="accent">K+</span>
                 <span class="stat-label">Active Users</span>
             </div>
+        </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-photo-wrapper">
+                <img src="ahmed.jpg" alt="Ahmed Elashry" class="hero-photo">
+                <div class="hero-photo-border"></div>
+            </div>
+        </div>
         </div>
     </div>
 </section>
@@ -201,11 +211,17 @@
         <div class="projects-grid">
 
             <!-- Bin Rabie Holding -->
-            <div class="project-card" data-category="web">
+            <div class="project-card" data-category="web" data-gallery='["screenshots/holding1.png","screenshots/holding2.png","screenshots/holding3.png"]' data-title="Bin Rabie Holding Group">
                 <div class="project-img">
-                    <img src="https://raw.githubusercontent.com/AhmedElashry20/bin-rabie-holding/main/screenshot.png" alt="Bin Rabie Holding" loading="lazy">
+                    <img src="screenshots/holding1.png" alt="Bin Rabie Holding" loading="lazy">
+                    <div class="project-screenshots">
+                        <img src="screenshots/holding1.png" alt="">
+                        <img src="screenshots/holding2.png" alt="">
+                        <img src="screenshots/holding3.png" alt="">
+                    </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/bin-rabie-holding" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="https://binrabiegroup.sa" target="_blank" class="btn btn-sm">Live Site ↗</a>
+                        <a href="https://github.com/AhmedElashry20/bin-rabie-holding" target="_blank" class="btn btn-sm btn-outline-sm">Source Code</a>
                     </div>
                 </div>
                 <div class="project-info">
@@ -215,7 +231,7 @@
                     <div class="project-tags">
                         <span>HTML</span><span>CSS</span><span>JavaScript</span>
                     </div>
-                    <span class="project-status live">Production</span>
+                    <span class="project-status live">binrabiegroup.sa</span>
                 </div>
             </div>
 
@@ -237,16 +253,22 @@
                     <div class="project-tags">
                         <span>Flutter</span><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>GPS</span>
                     </div>
-                    <span class="project-status live">Live Production</span>
+                    <span class="project-status live">qadir.sa</span>
                 </div>
             </div>
 
             <!-- Bin Rabie Express -->
-            <div class="project-card" data-category="web">
+            <div class="project-card" data-category="web" data-gallery='["screenshots/express1.png","screenshots/express2.png","screenshots/express3.png"]' data-title="Bin Rabie Express">
                 <div class="project-img">
-                    <img src="https://raw.githubusercontent.com/AhmedElashry20/bin-rabie-express/main/screenshot.png" alt="Bin Rabie Express" loading="lazy">
+                    <img src="screenshots/express1.png" alt="Bin Rabie Express" loading="lazy">
+                    <div class="project-screenshots">
+                        <img src="screenshots/express1.png" alt="">
+                        <img src="screenshots/express2.png" alt="">
+                        <img src="screenshots/express3.png" alt="">
+                    </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/bin-rabie-express" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="https://binrabieexpress.sa" target="_blank" class="btn btn-sm">Live Site ↗</a>
+                        <a href="https://github.com/AhmedElashry20/bin-rabie-express" target="_blank" class="btn btn-sm btn-outline-sm">Source Code</a>
                     </div>
                 </div>
                 <div class="project-info">
@@ -256,7 +278,7 @@
                     <div class="project-tags">
                         <span>HTML</span><span>CSS</span><span>JavaScript</span>
                     </div>
-                    <span class="project-status live">Production</span>
+                    <span class="project-status live">binrabieexpress.sa</span>
                 </div>
             </div>
 
@@ -268,7 +290,7 @@
                         <span class="placeholder-name">Courier Dashboard</span>
                     </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/courier-management" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="https://github.com/AhmedElashry20/courier-management" target="_blank" class="btn btn-sm">Source Code ↗</a>
                     </div>
                 </div>
                 <div class="project-info">
@@ -282,6 +304,54 @@
                 </div>
             </div>
 
+            <!-- Bin Rabie Food -->
+            <div class="project-card" data-category="web" data-gallery='["screenshots/food1.png","screenshots/food2.png","screenshots/food3.png"]' data-title="Bin Rabie Food">
+                <div class="project-img">
+                    <img src="screenshots/food1.png" alt="Bin Rabie Food" loading="lazy">
+                    <div class="project-screenshots">
+                        <img src="screenshots/food1.png" alt="">
+                        <img src="screenshots/food2.png" alt="">
+                        <img src="screenshots/food3.png" alt="">
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://binrabiefood.sa" target="_blank" class="btn btn-sm">Live Site ↗</a>
+                        <a href="https://github.com/AhmedElashry20/bin-rabie-food" target="_blank" class="btn btn-sm btn-outline-sm">Source Code</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">05</div>
+                    <h3>Bin Rabie Food</h3>
+                    <p>Restaurant website with menu showcase and online ordering system</p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <span class="project-status live">binrabiefood.sa</span>
+                </div>
+            </div>
+
+            <!-- Dom Car Rental -->
+            <div class="project-card" data-category="web">
+                <div class="project-img placeholder-img">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">🚗</span>
+                        <span class="placeholder-name">Dom</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://doom.sa" target="_blank" class="btn btn-sm">Live Site ↗</a>
+                        <a href="https://github.com/AhmedElashry20/dom-car-rental" target="_blank" class="btn btn-sm btn-outline-sm">Source Code</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">06</div>
+                    <h3>Dom Car Rental</h3>
+                    <p>Bilingual RTL car rental website — fleet showcase, booking, ISO certs</p>
+                    <div class="project-tags">
+                        <span>React</span><span>Node.js</span>
+                    </div>
+                    <span class="project-status live">doom.sa</span>
+                </div>
+            </div>
+
             <!-- FixGo -->
             <div class="project-card" data-category="mobile">
                 <div class="project-img placeholder-img">
@@ -290,11 +360,11 @@
                         <span class="placeholder-name">FixGo</span>
                     </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" class="btn btn-sm">Source Code ↗</a>
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="project-num">05</div>
+                    <div class="project-num">07</div>
                     <h3>FixGo — Home Services</h3>
                     <p>3 Flutter apps in sync — Client, Technician & Captain. 92% same-day completion</p>
                     <div class="project-tags">
@@ -304,35 +374,20 @@
                 </div>
             </div>
 
-            <!-- Bin Rabie Food -->
-            <div class="project-card" data-category="web">
-                <div class="project-img">
-                    <img src="https://raw.githubusercontent.com/AhmedElashry20/bin-rabie-food/main/screenshot.png" alt="Bin Rabie Food" loading="lazy">
-                    <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/bin-rabie-food" target="_blank" class="btn btn-sm">View Code ↗</a>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-num">06</div>
-                    <h3>Bin Rabie Food</h3>
-                    <p>Restaurant website with menu showcase and online ordering system</p>
-                    <div class="project-tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                    </div>
-                    <span class="project-status live">Production</span>
-                </div>
-            </div>
-
             <!-- Endpoint Security -->
-            <div class="project-card" data-category="enterprise">
+            <div class="project-card" data-category="enterprise" data-gallery='["screenshots/security1.png","screenshots/security2.png"]' data-title="Endpoint Security Monitor">
                 <div class="project-img">
-                    <img src="https://raw.githubusercontent.com/AhmedElashry20/endpoint-security-monitor/main/screenshot.png" alt="Endpoint Security" loading="lazy">
+                    <img src="screenshots/security1.png" alt="Endpoint Security" loading="lazy">
+                    <div class="project-screenshots">
+                        <img src="screenshots/security1.png" alt="">
+                        <img src="screenshots/security2.png" alt="">
+                    </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/endpoint-security-monitor" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="https://github.com/AhmedElashry20/endpoint-security-monitor" target="_blank" class="btn btn-sm">Source Code ↗</a>
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="project-num">07</div>
+                    <div class="project-num">08</div>
                     <h3>Endpoint Security Monitor</h3>
                     <p>Corporate security tool — detects & removes unauthorized remote access software</p>
                     <div class="project-tags">
@@ -354,7 +409,7 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="project-num">08</div>
+                    <div class="project-num">09</div>
                     <h3>Trippo — Ride-Hailing</h3>
                     <p>Smart ride-hailing with real-time GPS, dynamic pricing — 30% cost reduction</p>
                     <div class="project-tags">
@@ -376,7 +431,7 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="project-num">09</div>
+                    <div class="project-num">10</div>
                     <h3>WalletNow — Digital Wallet</h3>
                     <p>Secure digital wallet — bank API, QR transfers, 99.8% success rate</p>
                     <div class="project-tags">
@@ -386,23 +441,111 @@
                 </div>
             </div>
 
-            <!-- Dom Car Rental -->
-            <div class="project-card" data-category="web">
+            <!-- ShopX -->
+            <div class="project-card" data-category="mobile">
                 <div class="project-img placeholder-img">
                     <div class="placeholder-content">
-                        <span class="placeholder-icon">🚗</span>
-                        <span class="placeholder-name">Dom Car Rental</span>
+                        <span class="placeholder-icon">🛒</span>
+                        <span class="placeholder-name">ShopX</span>
                     </div>
                     <div class="project-overlay">
-                        <a href="https://github.com/AhmedElashry20/dom-car-rental" target="_blank" class="btn btn-sm">View Code ↗</a>
+                        <a href="#" class="btn btn-sm">Private Repo</a>
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="project-num">10</div>
-                    <h3>Dom Car Rental</h3>
-                    <p>Bilingual RTL car rental website — fleet showcase, booking, ISO certs</p>
+                    <div class="project-num">11</div>
+                    <h3>ShopX — E-Commerce</h3>
+                    <p>E-commerce platform processing 15,000+ monthly orders @ 78% checkout rate</p>
                     <div class="project-tags">
-                        <span>React</span><span>Node.js</span>
+                        <span>Flutter</span><span>REST API</span><span>Firebase</span>
+                    </div>
+                    <span class="project-status live">Production</span>
+                </div>
+            </div>
+
+            <!-- Basira -->
+            <div class="project-card" data-category="mobile enterprise">
+                <div class="project-img placeholder-img">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">📊</span>
+                        <span class="placeholder-name">Basira</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#" class="btn btn-sm">Private Repo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">12</div>
+                    <h3>Basira — AI Analytics</h3>
+                    <p>AI analytics dashboard — 100K+ transaction visualization & sales forecasting</p>
+                    <div class="project-tags">
+                        <span>Flutter</span><span>ML</span><span>Analytics</span>
+                    </div>
+                    <span class="project-status live">Production</span>
+                </div>
+            </div>
+
+            <!-- CasaKey -->
+            <div class="project-card" data-category="mobile">
+                <div class="project-img placeholder-img">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">🏠</span>
+                        <span class="placeholder-name">CasaKey</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#" class="btn btn-sm">Private Repo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">13</div>
+                    <h3>CasaKey — Smart Rentals</h3>
+                    <p>Smart rental app with IoT keyless entry & ML dynamic pricing</p>
+                    <div class="project-tags">
+                        <span>Flutter</span><span>IoT</span><span>ML</span>
+                    </div>
+                    <span class="project-status live">Production</span>
+                </div>
+            </div>
+
+            <!-- eChat -->
+            <div class="project-card" data-category="mobile">
+                <div class="project-img placeholder-img">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">💬</span>
+                        <span class="placeholder-name">eChat</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://github.com/AhmedElashry20/chat" target="_blank" class="btn btn-sm">Source Code ↗</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">14</div>
+                    <h3>eChat — Messaging App</h3>
+                    <p>Real-time voice & video chat with WebRTC and FCM push notifications</p>
+                    <div class="project-tags">
+                        <span>Flutter</span><span>WebRTC</span><span>Firebase</span>
+                    </div>
+                    <span class="project-status live">Production</span>
+                </div>
+            </div>
+
+            <!-- BinRubai ERP -->
+            <div class="project-card" data-category="enterprise">
+                <div class="project-img placeholder-img">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">🏢</span>
+                        <span class="placeholder-name">ERP System</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#" class="btn btn-sm">Private Repo</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-num">15</div>
+                    <h3>BinRubai ERP</h3>
+                    <p>Enterprise ERP for logistics & vehicle leasing — ZATCA-compliant invoicing</p>
+                    <div class="project-tags">
+                        <span>ASP.NET Core</span><span>SQL Server</span><span>React</span>
                     </div>
                     <span class="project-status live">Production</span>
                 </div>
@@ -515,6 +658,18 @@
 <footer class="footer">
     <p>&lt;/&gt; with <span class="accent">passion</span> by Ahmed Elashry &copy; 2025</p>
 </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">&times;</button>
+    <button class="lb-prev" id="lbPrev">&#8249;</button>
+    <button class="lb-next" id="lbNext">&#8250;</button>
+    <div class="lb-content">
+        <img src="" alt="" id="lbImg">
+        <p class="lb-caption" id="lbCaption"></p>
+        <p class="lb-counter" id="lbCounter"></p>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
