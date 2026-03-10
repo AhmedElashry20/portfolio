@@ -419,6 +419,14 @@ img { max-width: 100%; display: block; }
 .gcp-badge { background: linear-gradient(135deg, #4285F4, #1A73E8); font-size: 11px; }
 .pspo-badge { background: linear-gradient(135deg, #1B5E8C, #0D3B5E); font-size: 11px; }
 .udemy-badge { background: linear-gradient(135deg, #A435F0, #7B2AB8); }
+.ibm-badge { background: linear-gradient(135deg, #054ADA, #0530AD); font-size: 11px; }
+.oracle-badge { background: linear-gradient(135deg, #C74634, #9E3527); font-size: 11px; }
+.microsoft-badge { background: linear-gradient(135deg, #00A4EF, #0078D4); font-size: 12px; }
+.michigan-badge { background: linear-gradient(135deg, #00274C, #FFCB05); font-size: 11px; }
+.node-badge { background: linear-gradient(135deg, #339933, #1E6B1E); }
+.azure-badge { background: linear-gradient(135deg, #0078D4, #005A9E); font-size: 12px; }
+.postgres-badge { background: linear-gradient(135deg, #336791, #1F4D6B); font-size: 12px; }
+.docker-badge { background: linear-gradient(135deg, #2496ED, #1A7BC5); font-size: 11px; }
 .cert-body { flex: 1; min-width: 0; }
 .cert-body h4 {
     font-family: var(--mono); font-size: 14px;
