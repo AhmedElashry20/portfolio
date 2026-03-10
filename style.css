@@ -432,6 +432,9 @@ img { max-width: 100%; display: block; }
 .apple-badge { background: linear-gradient(135deg, #555555, #333333); }
 .kotlin-badge { background: linear-gradient(135deg, #7F52FF, #5C2EE0); }
 .reactnative-badge { background: linear-gradient(135deg, #61DAFB, #21A1C9); }
+.deeplearning-badge { background: linear-gradient(135deg, #D32F2F, #B71C1C); font-size: 11px; }
+.tensorflow-badge { background: linear-gradient(135deg, #FF6F00, #E65100); font-size: 11px; }
+.openai-badge { background: linear-gradient(135deg, #10A37F, #0D8C6D); font-size: 11px; }
 .cert-thumb {
     width: 80px; height: 56px;
     object-fit: cover; object-position: center;
