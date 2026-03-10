@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ahmed Elashry — CV</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;font-size:10.5pt;line-height:1.5}
+a{color:#0d6efd;text-decoration:none}
+.page{max-width:800px;margin:0 auto;padding:40px 48px}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #0d2d5c;padding-bottom:16px;margin-bottom:20px}
+.header-left h1{font-size:26pt;font-weight:700;color:#0d2d5c;letter-spacing:-0.5px}
+.header-left .title{font-size:12pt;color:#2563eb;font-weight:500;margin-top:2px}
+.header-left .summary{font-size:9.5pt;color:#555;margin-top:8px;max-width:420px;line-height:1.55}
+.header-right{text-align:right;font-size:9pt;color:#444;line-height:1.8}
+.header-right a{color:#444}
+.header-right .loc{font-weight:600;color:#0d2d5c}
+
+/* Section */
+.section{margin-bottom:18px}
+.section-title{font-size:11pt;font-weight:700;color:#0d2d5c;text-transform:uppercase;letter-spacing:1.5px;border-bottom:1.5px solid #e0e0e0;padding-bottom:4px;margin-bottom:10px}
+
+/* Experience */
+.exp-item{margin-bottom:14px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline}
+.exp-role{font-size:10.5pt;font-weight:600;color:#1a1a2e}
+.exp-date{font-size:9pt;color:#666;white-space:nowrap}
+.exp-company{font-size:9.5pt;color:#2563eb;font-weight:500}
+.exp-desc{font-size:9.5pt;color:#444;margin-top:4px}
+.exp-desc ul{padding-left:18px;margin-top:3px}
+.exp-desc li{margin-bottom:2px}
+
+/* Education */
+.edu-header{display:flex;justify-content:space-between;align-items:baseline}
+.edu-degree{font-weight:600;font-size:10.5pt}
+.edu-date{font-size:9pt;color:#666}
+.edu-school{font-size:9.5pt;color:#2563eb}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.skill-row{display:flex;justify-content:space-between;font-size:9.5pt}
+.skill-name{font-weight:500}
+.skill-level{color:#666}
+
+/* Certs */
+.certs-list{columns:2;column-gap:24px;font-size:9pt;color:#444}
+.certs-list .cert{break-inside:avoid;margin-bottom:4px;padding-left:12px;position:relative}
+.certs-list .cert::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;background:#2563eb;border-radius:50%}
+.cert-issuer{color:#888;font-size:8.5pt}
+
+/* Projects */
+.projects-list{columns:2;column-gap:24px;font-size:9pt}
+.proj{break-inside:avoid;margin-bottom:8px}
+.proj-name{font-weight:600;font-size:9.5pt;color:#1a1a2e}
+.proj-desc{color:#555;font-size:8.5pt}
+.proj-tech{color:#2563eb;font-size:8pt;margin-top:1px}
+
+/* Languages */
+.lang-row{display:flex;gap:32px;font-size:9.5pt}
+.lang-item .lang-name{font-weight:600}
+.lang-item .lang-level{color:#666}
+
+/* Print */
+@media print{
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{padding:20px 32px;max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+<div class="header-left">
+<h1>Ahmed Elashry</h1>
+<div class="title">Senior Full-Stack Developer &amp; Flutter Engineer</div>
+<div class="summary">8+ years of professional experience building 38+ production apps across Fintech, Logistics &amp; E-commerce, serving 100,000+ active users worldwide. Leading mobile &amp; web development at Bin Rabie Holding Group.</div>
+</div>
+<div class="header-right">
+<div class="loc">Riyadh, Saudi Arabia</div>
+<div><a href="mailto:ahmedmoustafaelashry@gmail.com">ahmedmoustafaelashry@gmail.com</a></div>
+<div><a href="tel:+966532241447">+966 532 241 447</a></div>
+<div><a href="https://github.com/AhmedElashry20">github.com/AhmedElashry20</a></div>
+<div><a href="https://linkedin.com/in/ahmed-elashry-a227a5319">linkedin.com/in/ahmed-elashry</a></div>
+<div><a href="https://ahmedelashry20.github.io/portfolio">ahmedelashry20.github.io/portfolio</a></div>
+</div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+<div class="section-title">Professional Experience</div>
+
+<div class="exp-item">
+<div class="exp-header">
+<span class="exp-role">Senior Full-Stack Developer &amp; IT Manager</span>
+<span class="exp-date">2021 &ndash; Present</span>
+</div>
+<div class="exp-company">Bin Rabie Holding Group &mdash; Riyadh, KSA</div>
+<div class="exp-desc">
+<ul>
+<li>Lead mobile and web development initiatives across multiple subsidiaries (Holding, Express, Food, Courier)</li>
+<li>Architect scalable backend systems with Node.js, PostgreSQL, and Prisma ORM serving enterprise operations</li>
+<li>Built and shipped corporate websites for Bin Rabie Holding, Express, and Food divisions</li>
+<li>Developed full ERP system (BinRubai ERP) with financial management, inventory, HR, and procurement modules</li>
+<li>Developed Courier Management System with shipment tracking, driver assignment, and route optimization</li>
+<li>Manage IT infrastructure, cloud deployments (AWS/Firebase), and CI/CD pipelines</li>
+</ul>
+</div>
+</div>
+
+<div class="exp-item">
+<div class="exp-header">
+<span class="exp-role">Flutter Developer &amp; Full-Stack Engineer</span>
+<span class="exp-date">2019 &ndash; 2021</span>
+</div>
+<div class="exp-company">Freelance / Contract &mdash; Remote</div>
+<div class="exp-desc">
+<ul>
+<li>Built qadir.sa VIP ride-hailing platform with real-time GPS tracking and multi-payment integration</li>
+<li>Developed HelpTK IT solutions platform (helptk.com) — web &amp; mobile apps, e-commerce, and POS systems</li>
+<li>Created FixGo on-demand home services app connecting users with verified professionals</li>
+<li>Delivered 15+ Flutter mobile apps across Fintech, E-commerce, Health, and Social domains</li>
+</ul>
+</div>
+</div>
+
+<div class="exp-item">
+<div class="exp-header">
+<span class="exp-role">Junior Software Developer</span>
+<span class="exp-date">2017 &ndash; 2019</span>
+</div>
+<div class="exp-company">Early Career &mdash; Egypt</div>
+<div class="exp-desc">
+<ul>
+<li>Developed Android applications with Kotlin and Java</li>
+<li>Built web applications with React, Node.js, and REST APIs</li>
+<li>Gained certifications in Python, Java, C#, C++, Swift, and Kotlin</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+<div class="section-title">Education</div>
+<div class="edu-header">
+<span class="edu-degree">B.Sc. Computer Science &mdash; Very Good</span>
+<span class="edu-date">2015 &ndash; 2019</span>
+</div>
+<div class="edu-school">Tanta University, Egypt</div>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+<div class="section-title">Technical Skills</div>
+<div class="skills-grid">
+<div class="skill-row"><span class="skill-name">Flutter / Dart</span><span class="skill-level">Expert</span></div>
+<div class="skill-row"><span class="skill-name">React / TypeScript</span><span class="skill-level">Advanced</span></div>
+<div class="skill-row"><span class="skill-name">Node.js / Express</span><span class="skill-level">Advanced</span></div>
+<div class="skill-row"><span class="skill-name">PostgreSQL / Prisma</span><span class="skill-level">Advanced</span></div>
+<div class="skill-row"><span class="skill-name">AWS / Firebase / GCP</span><span class="skill-level">Advanced</span></div>
+<div class="skill-row"><span class="skill-name">Docker / DevOps / CI-CD</span><span class="skill-level">Advanced</span></div>
+<div class="skill-row"><span class="skill-name">Python / TensorFlow / AI</span><span class="skill-level">Intermediate</span></div>
+<div class="skill-row"><span class="skill-name">Swift / Kotlin / Android</span><span class="skill-level">Intermediate</span></div>
+<div class="skill-row"><span class="skill-name">ASP.NET Core / C# / SQL Server</span><span class="skill-level">Intermediate</span></div>
+<div class="skill-row"><span class="skill-name">Git / Linux / Figma</span><span class="skill-level">Advanced</span></div>
+</div>
+</div>
+
+<!-- KEY PROJECTS -->
+<div class="section">
+<div class="section-title">Key Projects (38+ Total)</div>
+<div class="projects-list">
+<div class="proj">
+<div class="proj-name">HelpTK — IT Solutions Platform</div>
+<div class="proj-desc">Web &amp; mobile apps, e-commerce, POS solutions for businesses across KSA</div>
+<div class="proj-tech">Web Apps &bull; Mobile Apps &bull; E-Commerce &bull; POS</div>
+</div>
+<div class="proj">
+<div class="proj-name">Bin Rabie Holding Group</div>
+<div class="proj-desc">Corporate website with multi-language support and responsive design</div>
+<div class="proj-tech">HTML &bull; CSS &bull; JavaScript</div>
+</div>
+<div class="proj">
+<div class="proj-name">qadir.sa VIP Ride-Hailing</div>
+<div class="proj-desc">Premium ride-hailing with real-time GPS, fare calculation, multi-payment</div>
+<div class="proj-tech">Flutter &bull; React &bull; Node.js &bull; PostgreSQL</div>
+</div>
+<div class="proj">
+<div class="proj-name">BinRubai ERP System</div>
+<div class="proj-desc">Full ERP with financial, inventory, HR, and procurement modules</div>
+<div class="proj-tech">ASP.NET Core &bull; SQL Server &bull; React</div>
+</div>
+<div class="proj">
+<div class="proj-name">Courier Management System</div>
+<div class="proj-desc">End-to-end courier management with tracking and route optimization</div>
+<div class="proj-tech">Node.js &bull; React &bull; TypeScript &bull; PostgreSQL</div>
+</div>
+<div class="proj">
+<div class="proj-name">Bin Rabie Express &amp; Food</div>
+<div class="proj-desc">Delivery service &amp; food distribution websites with order tracking</div>
+<div class="proj-tech">HTML &bull; CSS &bull; JavaScript</div>
+</div>
+<div class="proj">
+<div class="proj-name">ICORE ERP (SaaS)</div>
+<div class="proj-desc">Cloud-based multi-tenant ERP with accounting, inventory, and HR</div>
+<div class="proj-tech">Web App &bull; ERP &bull; SaaS</div>
+</div>
+<div class="proj">
+<div class="proj-name">Basira AI Analytics</div>
+<div class="proj-desc">AI-powered business intelligence with predictive modeling</div>
+<div class="proj-tech">Flutter &bull; ML &bull; Analytics</div>
+</div>
+<div class="proj">
+<div class="proj-name">WalletNow Digital Wallet</div>
+<div class="proj-desc">Digital wallet with P2P transfers, QR payments, bank linking</div>
+<div class="proj-tech">Flutter &bull; Firebase &bull; Bank APIs</div>
+</div>
+<div class="proj">
+<div class="proj-name">FixGo Home Services</div>
+<div class="proj-desc">On-demand maintenance connecting users with verified professionals</div>
+<div class="proj-tech">Flutter &bull; Firebase &bull; Node.js</div>
+</div>
+<div class="proj">
+<div class="proj-name">Endpoint Security Monitor</div>
+<div class="proj-desc">Real-time security monitoring with threat detection and alerting</div>
+<div class="proj-tech">Python &bull; Node.js &bull; React</div>
+</div>
+<div class="proj">
+<div class="proj-name">ShopX E-Commerce</div>
+<div class="proj-desc">Full-featured e-commerce with catalog, cart, checkout, tracking</div>
+<div class="proj-tech">Flutter &bull; REST API &bull; Firebase</div>
+</div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section">
+<div class="section-title">Certifications (30 Total)</div>
+<div class="certs-list">
+<div class="cert">Associate Android Developer <span class="cert-issuer">— Google</span></div>
+<div class="cert">AWS Certified Developer - Associate <span class="cert-issuer">— AWS</span></div>
+<div class="cert">AWS Solutions Architect - Associate <span class="cert-issuer">— AWS</span></div>
+<div class="cert">Meta Front-End Developer (React) <span class="cert-issuer">— Meta</span></div>
+<div class="cert">CS50 Mobile App Dev <span class="cert-issuer">— Harvard / edX</span></div>
+<div class="cert">Certified ScrumMaster (CSM) <span class="cert-issuer">— Scrum Alliance</span></div>
+<div class="cert">Firebase Advanced Developer <span class="cert-issuer">— Google</span></div>
+<div class="cert">Algorithms Specialization <span class="cert-issuer">— Stanford</span></div>
+<div class="cert">SEC575 Mobile App Security <span class="cert-issuer">— SANS / GIAC</span></div>
+<div class="cert">Associate Cloud Engineer <span class="cert-issuer">— Google Cloud</span></div>
+<div class="cert">PSPO I Product Owner <span class="cert-issuer">— Scrum.org</span></div>
+<div class="cert">Flutter Certified Developer <span class="cert-issuer">— Google</span></div>
+<div class="cert">Docker Certified Associate <span class="cert-issuer">— Docker</span></div>
+<div class="cert">Oracle Java SE 11 <span class="cert-issuer">— Oracle</span></div>
+<div class="cert">C# .NET Core AZ-204 <span class="cert-issuer">— Microsoft</span></div>
+<div class="cert">OpenJS Node.js Developer <span class="cert-issuer">— Linux Foundation</span></div>
+<div class="cert">TypeScript Azure AZ-204 <span class="cert-issuer">— Microsoft</span></div>
+<div class="cert">PostgreSQL Associate <span class="cert-issuer">— EDB</span></div>
+<div class="cert">TensorFlow Developer <span class="cert-issuer">— Google</span></div>
+<div class="cert">ML Specialization <span class="cert-issuer">— DeepLearning.AI</span></div>
+<div class="cert">Deep Learning Specialization <span class="cert-issuer">— DeepLearning.AI</span></div>
+<div class="cert">IBM AI Engineering <span class="cert-issuer">— IBM</span></div>
+<div class="cert">iOS &amp; Swift Developer <span class="cert-issuer">— Apple</span></div>
+<div class="cert">Kotlin Certified Developer <span class="cert-issuer">— JetBrains</span></div>
+<div class="cert">Meta React Native <span class="cert-issuer">— Meta</span></div>
+<div class="cert">C++ Systems Programming <span class="cert-issuer">— U. of Michigan</span></div>
+<div class="cert">Python for DS &amp; AI <span class="cert-issuer">— IBM</span></div>
+<div class="cert">Flutter &amp; Dart Bootcamp <span class="cert-issuer">— Udemy</span></div>
+<div class="cert">Dart Certified Developer <span class="cert-issuer">— Google</span></div>
+<div class="cert">LLM Prompt Engineering <span class="cert-issuer">— DeepLearning.AI / OpenAI</span></div>
+</div>
+</div>
+
+<!-- LANGUAGES -->
+<div class="section">
+<div class="section-title">Languages</div>
+<div class="lang-row">
+<div class="lang-item"><span class="lang-name">Arabic</span> <span class="lang-level">&mdash; Native</span></div>
+<div class="lang-item"><span class="lang-name">English</span> <span class="lang-level">&mdash; C1 Advanced</span></div>
+<div class="lang-item"><span class="lang-name">Italian</span> <span class="lang-level">&mdash; B1 Intermediate</span></div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
