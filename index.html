@@ -237,20 +237,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 .show-more-btn{display:block;margin:32px auto 0;padding:12px 30px;border-radius:11px;background:transparent;border:1px solid var(--line2);color:var(--text);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .25s}
 .show-more-btn:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 24px rgba(34,211,238,.15)}
 
-/* ===================== CERTS ===================== */
-.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cert-card{border-radius:var(--rc);background:var(--card);border:1px solid var(--line);overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
-.cert-card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.3);box-shadow:0 14px 38px rgba(0,0,0,.4)}
-.cert-card.hidden{display:none}
-.cert-thumb{background:#060D14;cursor:zoom-in;overflow:hidden;border-bottom:1px solid var(--line)}
-.cert-thumb img{width:100%;height:186px;object-fit:cover;object-position:top center;transition:transform .45s}
-.cert-thumb:hover img{transform:scale(1.05)}
-.cert-info{padding:18px 20px 20px}
-.cert-info h3{font-size:.92rem;font-weight:700;margin-bottom:6px;line-height:1.4}
-.cert-issuer{font-size:.78rem;color:var(--cyan);font-weight:600;margin-bottom:9px}
-.cert-desc{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:10px}
-.cert-meta{font-family:var(--mono);font-size:.66rem;color:var(--dim)}
-
 /* ===================== IMPACT / TRUSTED ===================== */
 .impact-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:44px;align-items:center}
 .impact-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
@@ -323,7 +309,7 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 .tech-grid{grid-template-columns:repeat(4,1fr)}
 .svc-cards{grid-template-columns:repeat(2,1fr)}
 .svc-grid,.skills-grid{grid-template-columns:1fr;gap:32px}
-.exp-grid,.projects-grid,.certs-grid{grid-template-columns:repeat(2,1fr)}
+.exp-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}
 .hero h1{font-size:3rem}
 .globe{display:none}
 }
@@ -350,7 +336,7 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 @media(max-width:620px){
 .hero h1{font-size:2.15rem}
 .hero-btns .btn{flex:1 1 100%}
-.exp-grid,.projects-grid,.certs-grid,.impact-cards,.logo-grid,.about-meta{grid-template-columns:1fr}
+.exp-grid,.projects-grid,.impact-cards,.logo-grid,.about-meta{grid-template-columns:1fr}
 .stats-row{grid-template-columns:1fr}
 .tech-grid{grid-template-columns:repeat(3,1fr)}
 .svc-cards{grid-template-columns:1fr}
@@ -387,7 +373,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 <li><a href="#skills">Skills</a></li>
 <li><a href="#experience">Experience</a></li>
 <li><a href="#projects">Projects</a></li>
-<li><a href="#certs">Certifications</a></li>
 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
 </ul>
 </div>
@@ -1100,322 +1085,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 <button class="show-more-btn" id="show-more-projects" onclick="toggleProjects()">Show All Projects</button>
 </section>
 
-<!-- ================= CERTIFICATIONS ================= -->
-<section class="panel" id="certs">
-<div class="sec-head">
-<div class="reveal">
-<span class="eyebrow">Certifications</span>
-<h2 class="h2">30 professional <span class="c">certifications.</span></h2>
-</div>
-<p class="lead reveal" style="max-width:34ch">Verified credentials from Google, AWS, Meta, Stanford, Harvard and more.</p>
-</div>
-
-<div class="certs-grid" id="certs-grid">
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/01_Google_Android.png')"><img src="certs/01_Google_Android.png" alt="Google Android Cert"/></div>
-<div class="cert-info">
-<h3>Associate Android Developer</h3>
-<div class="cert-issuer">Google</div>
-<div class="cert-desc">Professional certification for Android app development with Kotlin and Java.</div>
-<div class="cert-meta">June 2019 &middot; ID: GDC-AAD-2019-AE4729</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/02_AWS_Developer.png')"><img src="certs/02_AWS_Developer.png" alt="AWS Developer Cert"/></div>
-<div class="cert-info">
-<h3>AWS Certified Developer - Associate</h3>
-<div class="cert-issuer">Amazon Web Services</div>
-<div class="cert-desc">Cloud development, deployment, and debugging on AWS. Score: 892/1000.</div>
-<div class="cert-meta">March 2020 &middot; ID: AWS-DVA-C01-2020-AE8341</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/03_AWS_Architect.png')"><img src="certs/03_AWS_Architect.png" alt="AWS Architect Cert"/></div>
-<div class="cert-info">
-<h3>AWS Solutions Architect - Associate</h3>
-<div class="cert-issuer">Amazon Web Services</div>
-<div class="cert-desc">Designing distributed systems and architectures on AWS. Score: 878/1000.</div>
-<div class="cert-meta">September 2020 &middot; ID: AWS-SAA-C02-2020-AE9112</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/04_Meta_React.png')"><img src="certs/04_Meta_React.png" alt="Meta React Cert"/></div>
-<div class="cert-info">
-<h3>Meta Front-End Developer - React</h3>
-<div class="cert-issuer">Coursera / Meta</div>
-<div class="cert-desc">Professional front-end development with React. Grade: 98.4%.</div>
-<div class="cert-meta">August 2021 &middot; ID: COUR-META-FE-2021-AE7712</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/05_Harvard_CS50.png')"><img src="certs/05_Harvard_CS50.png" alt="Harvard CS50 Cert"/></div>
-<div class="cert-info">
-<h3>CS50 Mobile App Dev with React Native</h3>
-<div class="cert-issuer">Harvard / edX</div>
-<div class="cert-desc">Mobile application development with React Native. Grade: A.</div>
-<div class="cert-meta">November 2021 &middot; ID: HX-CS50M-2021-AE3308</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/06_ScrumAlliance_CSM.png')"><img src="certs/06_ScrumAlliance_CSM.png" alt="CSM Cert"/></div>
-<div class="cert-info">
-<h3>Certified ScrumMaster (CSM)</h3>
-<div class="cert-issuer">Scrum Alliance</div>
-<div class="cert-desc">Agile project management and Scrum framework mastery.</div>
-<div class="cert-meta">January 2022 &middot; ID: SA-CSM-2022-AE1145</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/07_Firebase.png')"><img src="certs/07_Firebase.png" alt="Firebase Cert"/></div>
-<div class="cert-info">
-<h3>Firebase Advanced Developer</h3>
-<div class="cert-issuer">Google</div>
-<div class="cert-desc">Advanced Firebase services including Firestore, Cloud Functions, and authentication.</div>
-<div class="cert-meta">May 2022 &middot; ID: FB-ADV-2022-AE6631</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/08_Stanford_Algorithms.png')"><img src="certs/08_Stanford_Algorithms.png" alt="Stanford Algorithms Cert"/></div>
-<div class="cert-info">
-<h3>Algorithms Specialization</h3>
-<div class="cert-issuer">Stanford / Coursera</div>
-<div class="cert-desc">Divide and conquer, graph search, data structures, and NP-complete problems. Grade: 97.8%.</div>
-<div class="cert-meta">October 2022 &middot; ID: SU-ALGO-2022-AE2247</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/09_SANS_Security.png')"><img src="certs/09_SANS_Security.png" alt="SANS Security Cert"/></div>
-<div class="cert-info">
-<h3>SEC575 Mobile App Security</h3>
-<div class="cert-issuer">SANS / GIAC</div>
-<div class="cert-desc">Mobile application security testing and penetration testing. Score: 88%.</div>
-<div class="cert-meta">April 2023 &middot; ID: GIAC-GMAS-2023-AE5508</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/10_Google_Cloud.png')"><img src="certs/10_Google_Cloud.png" alt="Google Cloud Cert"/></div>
-<div class="cert-info">
-<h3>Associate Cloud Engineer</h3>
-<div class="cert-issuer">Google Cloud</div>
-<div class="cert-desc">Google Cloud infrastructure, deployment, and management. Score: 864/1000.</div>
-<div class="cert-meta">September 2023 &middot; ID: GCP-ACE-2023-AE4490</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/11_ScrumOrg_PSPO.png')"><img src="certs/11_ScrumOrg_PSPO.png" alt="PSPO Cert"/></div>
-<div class="cert-info">
-<h3>PSPO I - Professional Scrum Product Owner</h3>
-<div class="cert-issuer">Scrum.org</div>
-<div class="cert-desc">Product ownership, backlog management, and value delivery. Score: 92.5%.</div>
-<div class="cert-meta">December 2023 &middot; ID: SO-PSPO-2023-AE7780</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/12_Udemy_Flutter.png')"><img src="certs/12_Udemy_Flutter.png" alt="Udemy Flutter Cert"/></div>
-<div class="cert-info">
-<h3>Flutter &amp; Dart Bootcamp</h3>
-<div class="cert-issuer">Udemy / Angela Yu</div>
-<div class="cert-desc">Complete Flutter development bootcamp. 38 hours of content.</div>
-<div class="cert-meta">March 2024 &middot; ID: UC-FLUTTER-2024-AE9930</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/13_IBM_Python.png')"><img src="certs/13_IBM_Python.png" alt="IBM Python Cert"/></div>
-<div class="cert-info">
-<h3>Python for DS, AI &amp; Development</h3>
-<div class="cert-issuer">IBM / Coursera</div>
-<div class="cert-desc">Python programming for data science, AI, and application development. Grade: A.</div>
-<div class="cert-meta">March 2015 &middot; ID: IBM-PY-DS-2015-AE1103</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/14_Oracle_Java.png')"><img src="certs/14_Oracle_Java.png" alt="Oracle Java Cert"/></div>
-<div class="cert-info">
-<h3>Oracle Java SE 11</h3>
-<div class="cert-issuer">Oracle</div>
-<div class="cert-desc">Professional Java SE 11 developer certification. Score: 89%.</div>
-<div class="cert-meta">August 2016 &middot; ID: OCP-JAVA11-2016-AE2210</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/15_Microsoft_CSharp.png')"><img src="certs/15_Microsoft_CSharp.png" alt="Microsoft C# Cert"/></div>
-<div class="cert-info">
-<h3>C# .NET Core AZ-204</h3>
-<div class="cert-issuer">Microsoft</div>
-<div class="cert-desc">Azure developer certification with C# and .NET Core.</div>
-<div class="cert-meta">February 2017 &middot; ID: MS-AZ204-2017-AE3315</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/16_Michigan_CPP.png')"><img src="certs/16_Michigan_CPP.png" alt="Michigan C++ Cert"/></div>
-<div class="cert-info">
-<h3>C++ Systems Programming</h3>
-<div class="cert-issuer">University of Michigan / Coursera</div>
-<div class="cert-desc">Systems-level programming with C++. Grade: 96.2%.</div>
-<div class="cert-meta">January 2018 &middot; ID: UM-CPP-2018-AE1124</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/17_OpenJS_NodeJS.png')"><img src="certs/17_OpenJS_NodeJS.png" alt="OpenJS NodeJS Cert"/></div>
-<div class="cert-info">
-<h3>OpenJS Node.js Developer</h3>
-<div class="cert-issuer">OpenJS / Linux Foundation</div>
-<div class="cert-desc">Professional Node.js application development certification.</div>
-<div class="cert-meta">April 2020 &middot; ID: OJS-JSNSD-2020-AE4418</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/18_Microsoft_TypeScript.png')"><img src="certs/18_Microsoft_TypeScript.png" alt="Microsoft TypeScript Cert"/></div>
-<div class="cert-info">
-<h3>TypeScript &amp; Azure AZ-204</h3>
-<div class="cert-issuer">Microsoft</div>
-<div class="cert-desc">Azure development with TypeScript and modern web frameworks.</div>
-<div class="cert-meta">July 2021 &middot; ID: MS-AZ204-TS-2021-AE6621</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/19_EDB_PostgreSQL.png')"><img src="certs/19_EDB_PostgreSQL.png" alt="EDB PostgreSQL Cert"/></div>
-<div class="cert-info">
-<h3>PostgreSQL Associate</h3>
-<div class="cert-issuer">EDB (EnterpriseDB)</div>
-<div class="cert-desc">PostgreSQL database administration, optimization, and management.</div>
-<div class="cert-meta">February 2022 &middot; ID: EDB-PGASSOC-2022-AE3309</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/20_Docker_DCA.png')"><img src="certs/20_Docker_DCA.png" alt="Docker DCA Cert"/></div>
-<div class="cert-info">
-<h3>Docker Certified Associate</h3>
-<div class="cert-issuer">Docker / Mirantis</div>
-<div class="cert-desc">Docker containerization, orchestration, and deployment certification.</div>
-<div class="cert-meta">November 2022 &middot; ID: DCR-DCA-2022-AE8821</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/21_Google_Flutter.png')"><img src="certs/21_Google_Flutter.png" alt="Google Flutter Cert"/></div>
-<div class="cert-info">
-<h3>Flutter Certified App Developer</h3>
-<div class="cert-issuer">Google</div>
-<div class="cert-desc">Professional Flutter cross-platform mobile development certification.</div>
-<div class="cert-meta">June 2020 &middot; ID: GFL-CERT-2020-AE5501</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/22_Google_Dart.png')"><img src="certs/22_Google_Dart.png" alt="Google Dart Cert"/></div>
-<div class="cert-info">
-<h3>Dart Certified Developer</h3>
-<div class="cert-issuer">Google</div>
-<div class="cert-desc">Dart programming language proficiency and advanced concepts.</div>
-<div class="cert-meta">August 2020 &middot; ID: GDT-CERT-2020-AE5514</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/23_Apple_Swift.png')"><img src="certs/23_Apple_Swift.png" alt="Apple Swift Cert"/></div>
-<div class="cert-info">
-<h3>iOS &amp; Swift Developer</h3>
-<div class="cert-issuer">Apple</div>
-<div class="cert-desc">Native iOS application development with Swift and UIKit.</div>
-<div class="cert-meta">September 2017 &middot; ID: APL-IOS-2017-AE2205</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/24_JetBrains_Kotlin.png')"><img src="certs/24_JetBrains_Kotlin.png" alt="JetBrains Kotlin Cert"/></div>
-<div class="cert-info">
-<h3>Kotlin Certified Developer</h3>
-<div class="cert-issuer">JetBrains</div>
-<div class="cert-desc">Kotlin programming for Android and server-side development.</div>
-<div class="cert-meta">March 2018 &middot; ID: JB-KT-2018-AE3301</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/25_Meta_ReactNative.png')"><img src="certs/25_Meta_ReactNative.png" alt="Meta React Native Cert"/></div>
-<div class="cert-info">
-<h3>Meta React Native Mobile Dev</h3>
-<div class="cert-issuer">Coursera / Meta</div>
-<div class="cert-desc">Cross-platform mobile development with React Native. Grade: 97.1%.</div>
-<div class="cert-meta">November 2019 &middot; ID: COUR-META-RN-2019-AE5512</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/26_DeepLearningAI_ML.png')"><img src="certs/26_DeepLearningAI_ML.png" alt="ML Cert"/></div>
-<div class="cert-info">
-<h3>ML Specialization</h3>
-<div class="cert-issuer">DeepLearning.AI / Coursera</div>
-<div class="cert-desc">Machine learning fundamentals, supervised and unsupervised learning. Grade: 98.3%.</div>
-<div class="cert-meta">February 2022 &middot; ID: DL-ML-2022-AE7726</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/27_DeepLearningAI_DL.png')"><img src="certs/27_DeepLearningAI_DL.png" alt="DL Cert"/></div>
-<div class="cert-info">
-<h3>Deep Learning Specialization</h3>
-<div class="cert-issuer">DeepLearning.AI</div>
-<div class="cert-desc">Neural networks, CNNs, RNNs, and sequence models. Grade: 96.8%.</div>
-<div class="cert-meta">July 2022 &middot; ID: DL-DLS-2022-AE8837</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/28_TensorFlow.png')"><img src="certs/28_TensorFlow.png" alt="TensorFlow Cert"/></div>
-<div class="cert-info">
-<h3>TensorFlow Developer</h3>
-<div class="cert-issuer">Google</div>
-<div class="cert-desc">Building and deploying ML models with TensorFlow and Keras.</div>
-<div class="cert-meta">November 2022 &middot; ID: GTF-CERT-2022-AE9943</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/29_IBM_AI_Engineering.png')"><img src="certs/29_IBM_AI_Engineering.png" alt="IBM AI Cert"/></div>
-<div class="cert-info">
-<h3>IBM AI Engineering</h3>
-<div class="cert-issuer">IBM / Coursera</div>
-<div class="cert-desc">AI engineering with deep learning frameworks and deployment. Grade: 97.5%.</div>
-<div class="cert-meta">April 2023 &middot; ID: IBM-AI-ENG-2023-AE6614</div>
-</div>
-</div>
-
-<div class="cert-card reveal">
-<div class="cert-thumb" onclick="openLightbox('certs/30_LLM_PromptEngineering.png')"><img src="certs/30_LLM_PromptEngineering.png" alt="LLM Cert"/></div>
-<div class="cert-info">
-<h3>ChatGPT Prompt Engineering + LangChain</h3>
-<div class="cert-issuer">DeepLearning.AI / OpenAI</div>
-<div class="cert-desc">LLM prompt engineering, LangChain integration, and AI application development.</div>
-<div class="cert-meta">January 2024 &middot; ID: DL-LLM-2024-AE3318</div>
-</div>
-</div>
-
-</div>
-<button class="show-more-btn" id="show-more-certs" onclick="toggleCerts()">Show All Certifications</button>
-</section>
-
 <!-- ================= IMPACT / TRUSTED BY ================= -->
 <section class="panel" id="impact">
 <div class="impact-grid">
@@ -1528,7 +1197,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--cyan-d)}
 <h5>Resources</h5>
 <ul>
 <li><a href="Ahmed_Elashry_CV.pdf" download>Download CV</a></li>
-<li><a href="#certs">Certifications</a></li>
 <li><a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener">GitHub</a></li>
 <li><a href="https://linkedin.com/in/ahmed-elashry-a227a5319" target="_blank" rel="noopener">LinkedIn</a></li>
 </ul>
@@ -1654,21 +1322,6 @@ applyProjectLimit();
 });
 });
 applyProjectLimit();
-
-/* ---------- Certs show more ---------- */
-let certsExpanded=false;
-const CERT_LIMIT=6;
-function applyCertLimit(){
-const cards=[...document.querySelectorAll('#certs-grid .cert-card')];
-const btn=document.getElementById('show-more-certs');
-cards.forEach((c,i)=>{c.classList.toggle('hidden',!certsExpanded&&i>=CERT_LIMIT)});
-btn.textContent=certsExpanded?'Show Less':'Show All Certifications ('+cards.length+')';
-document.querySelectorAll('#certs-grid .cert-card:not(.hidden)').forEach(el=>{
-if(!el.classList.contains('visible'))revealObserver.observe(el);
-});
-}
-function toggleCerts(){certsExpanded=!certsExpanded;applyCertLimit()}
-applyCertLimit();
 
 /* ---------- Lightbox ---------- */
 function openLightbox(src){
