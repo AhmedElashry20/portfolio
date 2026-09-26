@@ -177,16 +177,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 .chip:hover{background:var(--card-h);color:var(--text)}
 .chip i{font-size:.95rem}
 
-/* ============================ CERTIFICATIONS ============================ */
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:16px}
-.cert{background:var(--card);border-radius:var(--r);overflow:hidden;cursor:zoom-in;transition:background .25s,transform .25s}
-.cert:hover,.cert:focus-visible{background:var(--card-h);transform:translateY(-4px);outline:none}
-.cert:focus-visible{box-shadow:0 0 0 2px var(--green)}
-.cert img{width:100%;aspect-ratio:1200/848;object-fit:cover;object-position:top center;background:#1f1f1f}
-.cert figcaption{padding:13px 15px 15px}
-.cert .ci{display:block;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
-.cert .ct{display:block;font-size:.72rem;color:var(--text);line-height:1.6}
-
 /* ============================ EXPERIENCE ============================ */
 .exp{border-top:1px solid var(--line)}
 .exp-row{display:grid;grid-template-columns:52px 1fr 1.25fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line);transition:background .25s}
@@ -306,8 +296,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <li><a href="#services">Services</a></li>
 <li><a href="#works">Works</a></li>
 <li><a href="#skills">Skills</a></li>
-<li><a href="#certs">Certs</a></li>
-<li><a href="#certs">Certifications</a></li>
 <li><a href="#experience">Experience</a></li>
 <li><a href="#contact">Contacts</a></li>
 </ul>
@@ -575,48 +563,6 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <span class="chip"><i class="devicon-linux-plain colored"></i>Linux</span>
 <span class="chip"><i class="devicon-tensorflow-original colored"></i>TensorFlow</span>
 <span class="chip"><i class="devicon-figma-plain colored"></i>Figma</span>
-</div>
-</div>
-</section>
-
-<!-- ===================== CERTIFICATIONS ===================== -->
-<section class="sec" id="certs">
-<div class="wrap">
-<div class="sec-head reveal">
-<h2>Certifications</h2>
-<p>30 verified credentials from Google, AWS, Meta, Stanford and Harvard</p>
-</div>
-<div class="cert-grid reveal">
-<figure class="cert" tabindex="0"><img src="certs/01_Google_Android.png" alt="Google — Android Development certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">Android Development</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/02_AWS_Developer.png" alt="AWS — Developer certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">AWS</span><span class="ct">Developer</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/03_AWS_Architect.png" alt="AWS — Solutions Architect certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">AWS</span><span class="ct">Solutions Architect</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/04_Meta_React.png" alt="Meta — React certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Meta</span><span class="ct">React</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/05_Harvard_CS50.png" alt="Harvard — CS50 certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Harvard</span><span class="ct">CS50</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/06_ScrumAlliance_CSM.png" alt="Scrum Alliance — CSM certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Scrum Alliance</span><span class="ct">CSM</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/07_Firebase.png" alt="Google — Firebase certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">Firebase</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/08_Stanford_Algorithms.png" alt="Stanford — Algorithms certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Stanford</span><span class="ct">Algorithms</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/09_SANS_Security.png" alt="SANS — Security certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">SANS</span><span class="ct">Security</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/10_Google_Cloud.png" alt="Google — Cloud certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">Cloud</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/11_ScrumOrg_PSPO.png" alt="Scrum.org — PSPO certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Scrum.org</span><span class="ct">PSPO</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/12_Udemy_Flutter.png" alt="Udemy — Flutter certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Udemy</span><span class="ct">Flutter</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/13_IBM_Python.png" alt="IBM — Python certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">IBM</span><span class="ct">Python</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/14_Oracle_Java.png" alt="Oracle — Java certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Oracle</span><span class="ct">Java</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/15_Microsoft_CSharp.png" alt="Microsoft — C# certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Microsoft</span><span class="ct">C#</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/16_Michigan_CPP.png" alt="U. of Michigan — C++ certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">U. of Michigan</span><span class="ct">C++</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/17_OpenJS_NodeJS.png" alt="OpenJS — Node.js certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">OpenJS</span><span class="ct">Node.js</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/18_Microsoft_TypeScript.png" alt="Microsoft — TypeScript certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Microsoft</span><span class="ct">TypeScript</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/19_EDB_PostgreSQL.png" alt="EDB — PostgreSQL certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">EDB</span><span class="ct">PostgreSQL</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/20_Docker_DCA.png" alt="Docker — DCA certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Docker</span><span class="ct">DCA</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/21_Google_Flutter.png" alt="Google — Flutter certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">Flutter</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/22_Google_Dart.png" alt="Google — Dart certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">Dart</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/23_Apple_Swift.png" alt="Apple — Swift certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Apple</span><span class="ct">Swift</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/24_JetBrains_Kotlin.png" alt="JetBrains — Kotlin certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">JetBrains</span><span class="ct">Kotlin</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/25_Meta_ReactNative.png" alt="Meta — React Native certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Meta</span><span class="ct">React Native</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/26_DeepLearningAI_ML.png" alt="DeepLearning.AI — Machine Learning certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">DeepLearning.AI</span><span class="ct">Machine Learning</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/27_DeepLearningAI_DL.png" alt="DeepLearning.AI — Deep Learning certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">DeepLearning.AI</span><span class="ct">Deep Learning</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/28_TensorFlow.png" alt="Google — TensorFlow certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">Google</span><span class="ct">TensorFlow</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/29_IBM_AI_Engineering.png" alt="IBM — AI Engineering certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">IBM</span><span class="ct">AI Engineering</span></figcaption></figure>
-<figure class="cert" tabindex="0"><img src="certs/30_LLM_PromptEngineering.png" alt="LLM — Prompt Engineering certificate" loading="lazy" decoding="async"/><figcaption><span class="ci">LLM</span><span class="ct">Prompt Engineering</span></figcaption></figure>
 </div>
 </div>
 </section>
@@ -892,19 +838,14 @@ bar.addEventListener('click',function(e){
 /* ---------- Lightbox ---------- */
 var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightbox-img');
 document.addEventListener('click',function(e){
-  var shot=e.target.closest('.work-shot img, .cert img');
+  var shot=e.target.closest('.work-shot img');
   if(shot){lbImg.src=shot.dataset.full||shot.src;lb.classList.add('open');document.body.style.overflow='hidden';return;}
   if(lb.classList.contains('open')&&(e.target===lb||e.target.classList.contains('lightbox-x'))){
     lb.classList.remove('open');document.body.style.overflow='';
   }
 });
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&lb.classList.contains('open')){lb.classList.remove('open');document.body.style.overflow='';return}
-  if(e.key!=='Enter'&&e.key!==' ')return;
-  var cert=document.activeElement&&document.activeElement.closest('.cert');
-  if(!cert)return;
-  e.preventDefault();
-  lbImg.src=cert.querySelector('img').src;lb.classList.add('open');document.body.style.overflow='hidden';
+  if(e.key==='Escape'&&lb.classList.contains('open')){lb.classList.remove('open');document.body.style.overflow=''}
 });
 
 /* ---------- Contact form -> mailto ---------- */
