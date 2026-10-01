@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#262626"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
 <style>
 /* ============================ TOKENS ============================ */
@@ -257,7 +257,10 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 .nav-links li{width:100%}
 .nav-links a{display:block;padding:11px 0;font-size:.82rem}
 .nav-toggle{display:block;order:3}
-.nav-side{display:none}
+/* keep the language switch reachable on mobile; drop the social links */
+.nav-side{display:flex;gap:10px;order:2}
+.nav-side a{display:none}
+.lang-btn{padding:5px 9px;font-size:.66rem}
 .hero-inner{grid-template-columns:1fr;gap:0}
 .hero-left{padding:50px 0 34px}
 .hero-fig{min-height:380px;padding-bottom:44px}
@@ -284,6 +287,43 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 .work-body{padding:0 20px 24px}
 .cform{padding:22px}
 }
+
+/* ============================ ARABIC / RTL ============================ */
+:root{--ar:'IBM Plex Sans Arabic','JetBrains Mono',sans-serif}
+.lang-btn{font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--green);background:transparent;border:1px solid rgba(74,222,138,.4);border-radius:5px;padding:5px 11px;cursor:pointer;transition:background .22s,color .22s;line-height:1.5;white-space:nowrap}
+.lang-btn:hover{background:var(--green);color:#1C1C1C}
+
+html[dir="rtl"] body{font-family:var(--ar);font-weight:400;line-height:2}
+html[dir="rtl"] .nav-logo,html[dir="rtl"] .h2,html[dir="rtl"] .sec-head h2,html[dir="rtl"] .hero h1,
+html[dir="rtl"] .intro h2,html[dir="rtl"] .intro blockquote,html[dir="rtl"] .exp-id h3,
+html[dir="rtl"] .badge,html[dir="rtl"] .glink,html[dir="rtl"] .work-top h3,html[dir="rtl"] .svc-card h3,
+html[dir="rtl"] .arc h4,html[dir="rtl"] .foot-col h5,html[dir="rtl"] .stat .n{font-family:var(--ar)}
+html[dir="rtl"] .lang-btn,html[dir="rtl"] .exp-num,html[dir="rtl"] .stat .n{font-family:var(--disp)}
+/* Arabic script must not be letter-spaced — it breaks the joins */
+html[dir="rtl"] body *{letter-spacing:normal}
+/* nudge the small type up a step: Arabic needs more height to stay legible */
+html[dir="rtl"] .p,html[dir="rtl"] .intro p,html[dir="rtl"] .exp-det p,html[dir="rtl"] .svc-card p,
+html[dir="rtl"] .work-body p,html[dir="rtl"] .arc p,html[dir="rtl"] .imp p,html[dir="rtl"] .foot-brand p{font-size:.84rem}
+html[dir="rtl"] .hero-desc{font-size:.95rem}
+html[dir="rtl"] .nav-links a,html[dir="rtl"] .foot-col ul a{font-size:.86rem}
+html[dir="rtl"] .clink .cl,html[dir="rtl"] .intro .meta .ml,html[dir="rtl"] .trust-t,
+html[dir="rtl"] .exp-id .when,html[dir="rtl"] .sec-head p{font-size:.72rem}
+html[dir="rtl"] .intro .meta .mv,html[dir="rtl"] .clink .cv,html[dir="rtl"] .exp-id .role{font-size:.82rem}
+html[dir="rtl"] .arc h4,html[dir="rtl"] .svc-card h3{font-size:.95rem}
+html[dir="rtl"] .exp-id .now,html[dir="rtl"] .work-status{font-size:.64rem}
+html[dir="rtl"] .cnt,html[dir="rtl"] .exp-tags span,html[dir="rtl"] .arc .t span,html[dir="rtl"] .w-tags span{font-size:.66rem}
+html[dir="rtl"] .note{font-size:.76rem}
+/* mirror the few physically-positioned bits */
+html[dir="rtl"] .tbadge.b2{right:auto;left:3%}
+html[dir="rtl"] .tbadge.b3{right:auto;left:16%}
+html[dir="rtl"] .svc-card:hover{transform:translateX(-5px)}
+html[dir="rtl"] .work-top{padding-right:0;padding-left:30px}
+html[dir="rtl"] .work-status::before{margin-right:0;margin-left:7px}
+html[dir="rtl"] .lightbox-x{right:auto;left:30px}
+html[dir="rtl"] .cform select{background-position:left 14px center;padding-right:16px;padding-left:40px}
+html[dir="rtl"] .stat .n,html[dir="rtl"] .imp .big,html[dir="rtl"] .bar .bt b,html[dir="rtl"] .exp-num{direction:ltr;unicode-bidi:isolate}
+html[dir="rtl"] .imp .big{text-align:right}
+@media(max-width:820px){html[dir="rtl"] .work-top{padding-left:20px}}
 </style>
 </head>
 <body>
@@ -291,18 +331,19 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <!-- ===================== NAV ===================== -->
 <nav class="nav" id="nav">
 <div class="nav-inner">
-<a href="#" class="nav-logo">Ahmed <em>Elashry</em></a>
+<a href="#" class="nav-logo" data-i18n="nav.logo">Ahmed <em>Elashry</em></a>
 <ul class="nav-links" id="nav-links">
-<li><a href="#services">Services</a></li>
-<li><a href="#works">Works</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#contact">Contacts</a></li>
+<li><a href="#services" data-i18n="nav.services">Services</a></li>
+<li><a href="#works" data-i18n="nav.works">Works</a></li>
+<li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+<li><a href="#experience" data-i18n="nav.exp">Experience</a></li>
+<li><a href="#contact" data-i18n="nav.contact">Contacts</a></li>
 </ul>
 <div class="nav-side">
 <a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.06c-3.09.67-3.74-1.3-3.74-1.3-.51-1.3-1.24-1.65-1.24-1.65-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.13-1.44 3.06-1.14 3.06-1.14.62 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.76 1.02.76 2.06v3.06c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5z"/></svg>Github</a>
 <a href="https://linkedin.com/in/ahmed-elashry-a227a5319" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.5 8.65 21 11 21 14.2V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.04 0-2.35 1.59-2.35 3.23V21H9z"/></svg>LinkedIn</a>
 <a href="mailto:ahmedmoustafaelashry@gmail.com" class="nav-mail" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+<button class="lang-btn" id="lang-btn" type="button" lang="ar">العربية</button>
 </div>
 <button class="nav-toggle" aria-label="Menu" id="nav-toggle">&#9776;</button>
 </div>
@@ -312,14 +353,14 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <header class="hero">
 <div class="wrap hero-inner">
 <div class="hero-left">
-<span class="badge">Senior Flutter Developer</span>
-<h1>I build scalable<br/><span class="c">mobile &amp; web apps</span><br/>that ship to production.</h1>
-<p class="hero-desc">I design and code cross-platform products that stay fast under load &mdash; 8+ years, 38+ apps, 100K+ active users across Fintech, Logistics and E-commerce.</p>
-<a href="#contact" class="glink">LET'S CHAT!</a>
+<span class="badge" data-i18n="hero.badge">Senior Flutter Developer</span>
+<h1 data-i18n="hero.h1">I build scalable<br/><span class="c">mobile &amp; web apps</span><br/>that ship to production.</h1>
+<p class="hero-desc" data-i18n="hero.desc">I design and code cross-platform products that stay fast under load &mdash; 8+ years, 38+ apps, 100K+ active users across Fintech, Logistics and E-commerce.</p>
+<a href="#contact" class="glink" data-i18n="hero.cta">LET'S CHAT!</a>
 <div class="stats">
-<div class="stat"><span class="n" data-count="8" data-suffix="+">0</span><span class="l">Years Experience</span></div>
-<div class="stat"><span class="n" data-count="38" data-suffix="+">0</span><span class="l">Projects Completed in 3 Countries</span></div>
-<div class="stat"><span class="n" data-count="30">0</span><span class="l">Certifications Earned</span></div>
+<div class="stat"><span class="n" data-count="8" data-suffix="+">0</span><span class="l" data-i18n="hero.s1">Years Experience</span></div>
+<div class="stat"><span class="n" data-count="38" data-suffix="+">0</span><span class="l" data-i18n="hero.s2">Projects Completed in 3 Countries</span></div>
+<div class="stat"><span class="n" data-count="30">0</span><span class="l" data-i18n="hero.s3">Certifications Earned</span></div>
 </div>
 </div>
 <div class="hero-fig">
@@ -340,51 +381,51 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <div class="svc-col reveal">
 <div class="svc-card">
 <div>
-<h3>Mobile</h3>
-<p>Cross-platform Flutter apps with clean architecture, native performance, offline-first sync and real-time features.</p>
-<span class="cnt">24 PROJECTS</span>
+<h3 data-i18n="svc1.t">Mobile</h3>
+<p data-i18n="svc1.d">Cross-platform Flutter apps with clean architecture, native performance, offline-first sync and real-time features.</p>
+<span class="cnt" data-i18n="svc1.c">24 PROJECTS</span>
 </div>
 <span class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
 </div>
 <div class="svc-card">
 <div>
-<h3>Full-Stack</h3>
-<p>Scalable REST and GraphQL services in Node.js with PostgreSQL, Prisma, caching, auth and microservices.</p>
-<span class="cnt">14 PROJECTS</span>
+<h3 data-i18n="svc2.t">Full-Stack</h3>
+<p data-i18n="svc2.d">Scalable REST and GraphQL services in Node.js with PostgreSQL, Prisma, caching, auth and microservices.</p>
+<span class="cnt" data-i18n="svc2.c">14 PROJECTS</span>
 </div>
 <span class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
 </div>
 <div class="svc-card">
 <div>
-<h3>Front-End</h3>
-<p>Responsive dashboards and platforms with React, TypeScript and Next.js &mdash; SSR, design systems and PWA support.</p>
-<span class="cnt">11 PROJECTS</span>
+<h3 data-i18n="svc3.t">Front-End</h3>
+<p data-i18n="svc3.d">Responsive dashboards and platforms with React, TypeScript and Next.js &mdash; SSR, design systems and PWA support.</p>
+<span class="cnt" data-i18n="svc3.c">11 PROJECTS</span>
 </div>
 <span class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
 </div>
 <div class="svc-card">
 <div>
-<h3>Cloud &amp; DevOps</h3>
-<p>AWS and Firebase infrastructure, Docker, CI/CD pipelines, monitoring and cost-optimized deployments.</p>
-<span class="cnt">9 PROJECTS</span>
+<h3 data-i18n="svc4.t">Cloud &amp; DevOps</h3>
+<p data-i18n="svc4.d">AWS and Firebase infrastructure, Docker, CI/CD pipelines, monitoring and cost-optimized deployments.</p>
+<span class="cnt" data-i18n="svc4.c">9 PROJECTS</span>
 </div>
 <span class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.1 9.4 4 4 0 0 0 6.5 19z"/></svg></span>
 </div>
 </div>
 
 <div class="intro reveal">
-<div class="label">Introduce</div>
-<h2>Hello! I'm Ahmed<br/>Elashry</h2>
-<blockquote>Every great product begins with code someone else can still read a year later</blockquote>
-<p>I'm a Senior Flutter Developer and Full-Stack Engineer with over 8 years designing, building and shipping high-quality mobile and web applications across Fintech, Logistics, E-commerce and Enterprise Resource Planning.</p>
-<p>I hold 30 professional certifications from Google, AWS, Meta, Stanford and Harvard. I care about clean architecture, measurable performance, and using AI to push what software can do &mdash; I cut app crash rate from 2.3% to 0.1% and neutralized a live cyber intrusion in production.</p>
+<div class="label" data-i18n="intro.label">Introduce</div>
+<h2 data-i18n="intro.h2">Hello! I'm Ahmed<br/>Elashry</h2>
+<blockquote data-i18n="intro.quote">Every great product begins with code someone else can still read a year later</blockquote>
+<p data-i18n="intro.p1">I'm a Senior Flutter Developer and Full-Stack Engineer with over 8 years designing, building and shipping high-quality mobile and web applications across Fintech, Logistics, E-commerce and Enterprise Resource Planning.</p>
+<p data-i18n="intro.p2">I hold 30 professional certifications from Google, AWS, Meta, Stanford and Harvard. I care about clean architecture, measurable performance, and using AI to push what software can do &mdash; I cut app crash rate from 2.3% to 0.1% and neutralized a live cyber intrusion in production.</p>
 <div class="meta">
-<div><span class="ml">Role</span><span class="mv">Senior Full-Stack Developer &amp; IT Manager</span></div>
-<div><span class="ml">Location</span><span class="mv">Riyadh, Saudi Arabia</span></div>
-<div class="full"><span class="ml">Education</span><span class="mv">B.Sc. Computer Science &mdash; Tanta University, 2018 (Very Good)</span></div>
-<div class="full"><span class="ml">Languages</span><span class="mv">Arabic (Native) &middot; English (C1 Advanced) &middot; Italian (B1)</span></div>
+<div><span class="ml" data-i18n="intro.m1l">Role</span><span class="mv" data-i18n="intro.m1v">Senior Full-Stack Developer &amp; IT Manager</span></div>
+<div><span class="ml" data-i18n="intro.m2l">Location</span><span class="mv" data-i18n="intro.m2v">Riyadh, Saudi Arabia</span></div>
+<div class="full"><span class="ml" data-i18n="intro.m3l">Education</span><span class="mv" data-i18n="intro.m3v">B.Sc. Computer Science &mdash; Tanta University, 2018 (Very Good)</span></div>
+<div class="full"><span class="ml" data-i18n="intro.m4l">Languages</span><span class="mv" data-i18n="intro.m4v">Arabic (Native) &middot; English (C1 Advanced) &middot; Italian (B1)</span></div>
 </div>
-<div style="margin-top:32px"><a href="Ahmed_Elashry_CV.pdf" download class="glink">DOWNLOAD CV</a></div>
+<div style="margin-top:32px"><a href="Ahmed_Elashry_CV.pdf" download class="glink cv-link" data-i18n="intro.cv">DOWNLOAD CV</a></div>
 </div>
 
 </div>
@@ -394,8 +435,8 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <section class="sec" id="works" style="padding-top:34px">
 <div class="wrap">
 <div class="sec-head reveal">
-<h2>Latest Works</h2>
-<p>Perfect solutions for digital experience</p>
+<h2 data-i18n="works.h2">Latest Works</h2>
+<p data-i18n="works.sub">Perfect solutions for digital experience</p>
 </div>
 
 <div class="works">
@@ -403,19 +444,19 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 
 <article class="work reveal">
 <div class="work-top">
-<h3>Qadir</h3>
+<h3 data-i18n="w1.t">Qadir</h3>
 <div class="w-tags"><span>Flutter</span><span>iOS</span><span>Node.js</span></div>
 </div>
 <div class="work-body">
-<span class="work-status">Live on App Store</span>
-<p>Premium VIP ride-hailing platform shipped as two App Store apps &mdash; rider and driver &mdash; with real-time GPS tracking, fare calculation and multi-payment integration.</p>
-<div class="work-links"><a href="https://apps.apple.com/sa/app/qadir/id6792473506?l=ar" target="_blank" rel="noopener">App Store</a><a href="https://apps.apple.com/sa/app/qadir-driver/id6792473471?l=ar" target="_blank" rel="noopener">Driver App</a><a href="https://qadir.sa" target="_blank" rel="noopener">Live Site</a></div>
+<span class="work-status" data-i18n="w.qadir.s">Live on App Store</span>
+<p data-i18n="w.qadir.d">Premium VIP ride-hailing platform shipped as two App Store apps &mdash; rider and driver &mdash; with real-time GPS tracking, fare calculation and multi-payment integration.</p>
+<div class="work-links"><a href="https://apps.apple.com/sa/app/qadir/id6792473506?l=ar" target="_blank" rel="noopener" data-i18n="l.store">App Store</a><a href="https://apps.apple.com/sa/app/qadir-driver/id6792473471?l=ar" target="_blank" rel="noopener" data-i18n="l.driver">Driver App</a><a href="https://qadir.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div>
 </div>
 </article>
 
 <article class="work is-green reveal">
 <div class="work-top">
-<h3>Bin Rabie Holding</h3>
+<h3 data-i18n="w2.t">Bin Rabie Holding</h3>
 <div class="w-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
 </div>
 <div class="work-shot"><img loading="lazy" decoding="async" src="screenshots/holding1.png" alt="Bin Rabie Holding Group" data-full="screenshots/holding1.png"/></div>
@@ -423,7 +464,7 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 
 <article class="work reveal">
 <div class="work-top">
-<h3>Bin Rabie Food</h3>
+<h3 data-i18n="w3.t">Bin Rabie Food</h3>
 <div class="w-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
 </div>
 <div class="work-shot"><img loading="lazy" decoding="async" src="screenshots/food1.png" alt="Bin Rabie Food" data-full="screenshots/food1.png"/></div>
@@ -434,7 +475,7 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 
 <article class="work is-green reveal">
 <div class="work-top">
-<h3>Endpoint Security</h3>
+<h3 data-i18n="w4.t">Endpoint Security</h3>
 <div class="w-tags"><span>Python</span><span>Node.js</span><span>React</span></div>
 </div>
 <div class="work-shot"><img loading="lazy" decoding="async" src="screenshots/security1.png" alt="Endpoint Security Monitor" data-full="screenshots/security1.png"/></div>
@@ -442,7 +483,7 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 
 <article class="work reveal">
 <div class="work-top">
-<h3>Bin Rabie Express</h3>
+<h3 data-i18n="w5.t">Bin Rabie Express</h3>
 <div class="w-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
 </div>
 <div class="work-shot"><img loading="lazy" decoding="async" src="screenshots/express1.png" alt="Bin Rabie Express" data-full="screenshots/express1.png"/></div>
@@ -450,12 +491,12 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 
 <article class="work is-green reveal">
 <div class="work-top">
-<h3>HelpTK</h3>
+<h3 data-i18n="w6.t">HelpTK</h3>
 <div class="w-tags"><span>React</span><span>Node.js</span><span>POS</span></div>
 </div>
 <div class="work-body">
-<p>IT solutions platform offering web &amp; mobile applications, e-commerce systems, POS solutions and 24/7 technical support for 50+ clients across Saudi Arabia.</p>
-<div class="work-links"><a href="https://helptk.com/home" target="_blank" rel="noopener">Live Site</a></div>
+<p data-i18n="w.helptk.d">IT solutions platform offering web &amp; mobile applications, e-commerce systems, POS solutions and 24/7 technical support for 50+ clients across Saudi Arabia.</p>
+<div class="work-links"><a href="https://helptk.com/home" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div>
 </div>
 </article>
 
@@ -463,60 +504,60 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 </div>
 
 <div class="works-foot reveal">
-<a href="#archive" class="glink" id="all-projects-btn">ALL PROJECTS</a>
-<p class="note">* Some projects are under NDA and can't be published here,<br/>if you want to see more, <a href="#contact">contact</a></p>
+<a href="#archive" class="glink" id="all-projects-btn" data-i18n="works.all">ALL PROJECTS</a>
+<p class="note" data-i18n="works.note">* Some projects are under NDA and can't be published here,<br/>if you want to see more, <a href="#contact">contact</a></p>
 </div>
 
 <div id="archive">
 <div class="filter-bar reveal" id="filter-bar" style="display:none">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="ios">App Store</button>
-<button class="filter-btn" data-filter="mobile">Mobile</button>
-<button class="filter-btn" data-filter="web">Web</button>
-<button class="filter-btn" data-filter="erp">ERP</button>
-<button class="filter-btn" data-filter="enterprise">Enterprise</button>
+<button class="filter-btn active" data-filter="all" data-i18n="f.all">All</button>
+<button class="filter-btn" data-filter="ios" data-i18n="f.ios">App Store</button>
+<button class="filter-btn" data-filter="mobile" data-i18n="f.mobile">Mobile</button>
+<button class="filter-btn" data-filter="web" data-i18n="f.web">Web</button>
+<button class="filter-btn" data-filter="erp" data-i18n="f.erp">ERP</button>
+<button class="filter-btn" data-filter="enterprise" data-i18n="f.ent">Enterprise</button>
 </div>
 
 <div class="archive" id="archive-grid">
-<div class="arc" data-category="web enterprise"><h4>HelpTK — IT Solutions Platform</h4><p>Web &amp; mobile applications, e-commerce systems, POS solutions, UI design, database management and 24/7 support.</p><div class="t"><span>Web Apps</span><span>Mobile</span><span>E-Commerce</span><span>POS</span></div><div class="l"><a href="https://helptk.com/home" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="web erp"><h4>Bin Rabie Holding Group</h4><p>Corporate website for the holding group with modern design, multi-language support and responsive layout.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabiegroup.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="mobile enterprise ios"><h4>Qadir — VIP Ride-Hailing</h4><p>Premium ride-hailing platform on the App Store as rider and driver apps with real-time GPS and multi-payment.</p><div class="t"><span>Flutter</span><span>iOS</span><span>Node.js</span><span>GPS</span></div><div class="l"><a href="https://apps.apple.com/sa/app/qadir/id6792473506?l=ar" target="_blank" rel="noopener">App Store</a><a href="https://qadir.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="web erp"><h4>Bin Rabie Express</h4><p>Express delivery service website with order tracking, branch locator and service catalog.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabieexpress.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="enterprise erp"><h4>Courier Management System</h4><p>End-to-end courier management with shipment tracking, driver assignment, route optimization and analytics.</p><div class="t"><span>Node.js</span><span>React</span><span>TypeScript</span><span>Prisma</span></div><div class="l"><a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="web erp"><h4>Bin Rabie Food</h4><p>Food distribution company website with product catalog, ordering system and delivery tracking.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabiefood.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="web"><h4>Dom Car Rental</h4><p>Car rental platform with vehicle browsing, reservation management and payment integration.</p><div class="t"><span>React</span><span>Node.js</span></div><div class="l"><a href="https://doom.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="mobile"><h4>FixGo Home Services</h4><p>On-demand home maintenance app connecting users with verified plumbing, electrical and cleaning professionals.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>Node.js</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="enterprise"><h4>Endpoint Security Monitor</h4><p>Real-time endpoint security monitoring dashboard with threat detection, alerting and compliance reporting.</p><div class="t"><span>Python</span><span>Node.js</span><span>React</span></div><div class="l"><a href="https://github.com/AhmedElashry20/endpoint-security-monitor" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Trippo Ride-Hailing</h4><p>Ride-hailing app with real-time tracking, smart fare estimation, in-app chat and multi-payment support.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>GPS</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile"><h4>WalletNow Digital Wallet</h4><p>Digital wallet app with bank account linking, P2P transfers, QR payments and transaction history.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>Bank APIs</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile"><h4>ShopX E-Commerce</h4><p>Full-featured e-commerce app with product catalog, cart management, checkout and order tracking.</p><div class="t"><span>Flutter</span><span>REST API</span><span>Firebase</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile enterprise"><h4>Basira AI Analytics</h4><p>AI-powered business intelligence platform with predictive modeling, dashboards and automated reporting.</p><div class="t"><span>Flutter</span><span>ML</span><span>Analytics</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile"><h4>CasaKey Smart Rentals</h4><p>Smart rental management with IoT smart locks, automated check-in/out, ML-based pricing and analytics.</p><div class="t"><span>Flutter</span><span>IoT</span><span>ML</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile"><h4>eChat Messaging</h4><p>Real-time messaging app with WebRTC video calls, end-to-end encryption, group chats and media sharing.</p><div class="t"><span>Flutter</span><span>WebRTC</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/chat" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="enterprise erp"><h4>BinRubai ERP</h4><p>Full ERP system with financial management, inventory, HR, procurement and reporting modules.</p><div class="t"><span>ASP.NET Core</span><span>SQL Server</span><span>React</span></div><div class="l"><i>Private</i></div></div>
-<div class="arc" data-category="mobile"><h4>FixHelp Staff</h4><p>Staff management companion app with job assignments, schedules and performance tracking.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelpstaff" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Smoo</h4><p>Social networking app with user profiles, content sharing, notifications and real-time interactions.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://smoo.sa" target="_blank" rel="noopener">Live Site</a><a href="https://github.com/AhmedElashry20/smoo" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Dector Doctor Booking</h4><p>Doctor appointment booking app with specialist search, schedule management, telemedicine and health records.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/dector" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Fix Maintenance</h4><p>Maintenance request management app with job ticketing, status tracking and technician dispatch.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fix" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Personal Expenses Tracker</h4><p>Personal finance tracker with expense categorization, charts, budgets and monthly spending analysis.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Flutter_Personal_Expenses_App-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Weather App</h4><p>Weather forecast app with current conditions, 7-day forecast, location search and animated icons.</p><div class="t"><span>Flutter</span><span>API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/weather-app-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>YouTube Clone</h4><p>Video streaming app with search, playback, channels and recommendation feeds.</p><div class="t"><span>Flutter</span><span>YouTube API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Youtube-Clone-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Twitter Clone</h4><p>Social media app with tweets, retweets, likes, follows and real-time feed updates.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/flutter_twitter_clone-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Ebook Reader</h4><p>E-book reader with library management, bookmarks, reading progress, night mode and font customization.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/FlutterEbookApp-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="web"><h4>Word Hunt Dictionary</h4><p>Interactive dictionary web app with word search, definitions, synonyms, pronunciation and etymology.</p><div class="t"><span>React</span><span>API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/word-hunt-react-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Movies App</h4><p>Movie discovery app with trending films, detailed info, trailers, ratings and watchlist management.</p><div class="t"><span>Flutter</span><span>TMDB API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/movies-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Amazon Clone</h4><p>E-commerce app with product listings, cart, checkout, order history and user authentication.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/AmazonCloneMaster" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>AuthPass Password Manager</h4><p>Secure password manager with AES encryption, auto-fill, password generator and cloud sync.</p><div class="t"><span>Flutter</span><span>Security</span></div><div class="l"><a href="https://github.com/AhmedElashry20/authpass-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Water Reminder</h4><p>Health app with hydration tracking, customizable reminders, daily goals and intake statistics.</p><div class="t"><span>Flutter</span><span>Notifications</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Water-Reminder-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Covid-19 Tracker</h4><p>Real-time COVID-19 statistics dashboard with global and country data, charts and historical trends.</p><div class="t"><span>Flutter</span><span>REST API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Covid-App-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Photo App</h4><p>Photo capture and editing app with filters, cropping, gallery management and sharing.</p><div class="t"><span>Flutter</span><span>Camera</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Photo-App-Project-Flutter-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Best Flutter UI Templates</h4><p>Collection of UI templates and components showcasing advanced Flutter design patterns.</p><div class="t"><span>Flutter</span><span>UI/UX</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Best-Flutter-UI-Templates-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="web enterprise"><h4>ICORE ERP</h4><p>Cloud-based ERP SaaS platform with multi-tenant architecture and modules for accounting, inventory and HR.</p><div class="t"><span>Web App</span><span>ERP</span><span>SaaS</span></div><div class="l"><a href="https://icoreerp.com" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="web enterprise erp"><h4>Bin Rabie Courier Management</h4><p>Enterprise courier dashboard with fleet tracking, delivery analytics and performance metrics.</p><div class="t"><span>Web App</span><span>Dashboard</span><span>Enterprise</span></div><div class="l"><a href="https://binrabiee.sa" target="_blank" rel="noopener">Live Site</a></div></div>
-<div class="arc" data-category="mobile"><h4>Flutter Example Apps</h4><p>Curated collection of Flutter example applications demonstrating best practices and design patterns.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/FlutterExampleApps-master" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Awesome Open Source Flutter</h4><p>Collection of open-source Flutter apps and packages for reference and learning.</p><div class="t"><span>Flutter</span><span>Open Source</span></div><div class="l"><a href="https://github.com/AhmedElashry20/awesome-open-source-flutter-apps-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="mobile"><h4>Flutter Dev</h4><p>Flutter development playground with experimental widgets, animations and architecture examples.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Flutter_Dev-main" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="arc" data-category="enterprise"><h4>FixHelp System</h4><p>Complete home services management system with customer app, provider app and admin dashboard.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" rel="noopener">GitHub</a></div></div>
+<div class="arc" data-category="web enterprise"><h4 data-i18n="a0.h">HelpTK — IT Solutions Platform</h4><p data-i18n="a0.p">Web &amp; mobile applications, e-commerce systems, POS solutions, UI design, database management and 24/7 support.</p><div class="t"><span>Web Apps</span><span>Mobile</span><span>E-Commerce</span><span>POS</span></div><div class="l"><a href="https://helptk.com/home" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="web erp"><h4 data-i18n="a1.h">Bin Rabie Holding Group</h4><p data-i18n="a1.p">Corporate website for the holding group with modern design, multi-language support and responsive layout.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabiegroup.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="mobile enterprise ios"><h4 data-i18n="a2.h">Qadir — VIP Ride-Hailing</h4><p data-i18n="a2.p">Premium ride-hailing platform on the App Store as rider and driver apps with real-time GPS and multi-payment.</p><div class="t"><span>Flutter</span><span>iOS</span><span>Node.js</span><span>GPS</span></div><div class="l"><a href="https://apps.apple.com/sa/app/qadir/id6792473506?l=ar" target="_blank" rel="noopener" data-i18n="l.store">App Store</a><a href="https://qadir.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="web erp"><h4 data-i18n="a3.h">Bin Rabie Express</h4><p data-i18n="a3.p">Express delivery service website with order tracking, branch locator and service catalog.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabieexpress.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="enterprise erp"><h4 data-i18n="a4.h">Courier Management System</h4><p data-i18n="a4.p">End-to-end courier management with shipment tracking, driver assignment, route optimization and analytics.</p><div class="t"><span>Node.js</span><span>React</span><span>TypeScript</span><span>Prisma</span></div><div class="l"><a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="web erp"><h4 data-i18n="a5.h">Bin Rabie Food</h4><p data-i18n="a5.p">Food distribution company website with product catalog, ordering system and delivery tracking.</p><div class="t"><span>HTML</span><span>CSS</span><span>JS</span></div><div class="l"><a href="https://binrabiefood.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="web"><h4 data-i18n="a6.h">Dom Car Rental</h4><p data-i18n="a6.p">Car rental platform with vehicle browsing, reservation management and payment integration.</p><div class="t"><span>React</span><span>Node.js</span></div><div class="l"><a href="https://doom.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a7.h">FixGo Home Services</h4><p data-i18n="a7.p">On-demand home maintenance app connecting users with verified plumbing, electrical and cleaning professionals.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>Node.js</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="enterprise"><h4 data-i18n="a8.h">Endpoint Security Monitor</h4><p data-i18n="a8.p">Real-time endpoint security monitoring dashboard with threat detection, alerting and compliance reporting.</p><div class="t"><span>Python</span><span>Node.js</span><span>React</span></div><div class="l"><a href="https://github.com/AhmedElashry20/endpoint-security-monitor" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a9.h">Trippo Ride-Hailing</h4><p data-i18n="a9.p">Ride-hailing app with real-time tracking, smart fare estimation, in-app chat and multi-payment support.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>GPS</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a10.h">WalletNow Digital Wallet</h4><p data-i18n="a10.p">Digital wallet app with bank account linking, P2P transfers, QR payments and transaction history.</p><div class="t"><span>Flutter</span><span>Firebase</span><span>Bank APIs</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a11.h">ShopX E-Commerce</h4><p data-i18n="a11.p">Full-featured e-commerce app with product catalog, cart management, checkout and order tracking.</p><div class="t"><span>Flutter</span><span>REST API</span><span>Firebase</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile enterprise"><h4 data-i18n="a12.h">Basira AI Analytics</h4><p data-i18n="a12.p">AI-powered business intelligence platform with predictive modeling, dashboards and automated reporting.</p><div class="t"><span>Flutter</span><span>ML</span><span>Analytics</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a13.h">CasaKey Smart Rentals</h4><p data-i18n="a13.p">Smart rental management with IoT smart locks, automated check-in/out, ML-based pricing and analytics.</p><div class="t"><span>Flutter</span><span>IoT</span><span>ML</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a14.h">eChat Messaging</h4><p data-i18n="a14.p">Real-time messaging app with WebRTC video calls, end-to-end encryption, group chats and media sharing.</p><div class="t"><span>Flutter</span><span>WebRTC</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/chat" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="enterprise erp"><h4 data-i18n="a15.h">BinRubai ERP</h4><p data-i18n="a15.p">Full ERP system with financial management, inventory, HR, procurement and reporting modules.</p><div class="t"><span>ASP.NET Core</span><span>SQL Server</span><span>React</span></div><div class="l"><i data-i18n="l.priv">Private</i></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a16.h">FixHelp Staff</h4><p data-i18n="a16.p">Staff management companion app with job assignments, schedules and performance tracking.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelpstaff" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a17.h">Smoo</h4><p data-i18n="a17.p">Social networking app with user profiles, content sharing, notifications and real-time interactions.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://smoo.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a><a href="https://github.com/AhmedElashry20/smoo" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a18.h">Dector Doctor Booking</h4><p data-i18n="a18.p">Doctor appointment booking app with specialist search, schedule management, telemedicine and health records.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/dector" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a19.h">Fix Maintenance</h4><p data-i18n="a19.p">Maintenance request management app with job ticketing, status tracking and technician dispatch.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fix" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a20.h">Personal Expenses Tracker</h4><p data-i18n="a20.p">Personal finance tracker with expense categorization, charts, budgets and monthly spending analysis.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Flutter_Personal_Expenses_App-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a21.h">Weather App</h4><p data-i18n="a21.p">Weather forecast app with current conditions, 7-day forecast, location search and animated icons.</p><div class="t"><span>Flutter</span><span>API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/weather-app-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a22.h">YouTube Clone</h4><p data-i18n="a22.p">Video streaming app with search, playback, channels and recommendation feeds.</p><div class="t"><span>Flutter</span><span>YouTube API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Youtube-Clone-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a23.h">Twitter Clone</h4><p data-i18n="a23.p">Social media app with tweets, retweets, likes, follows and real-time feed updates.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/flutter_twitter_clone-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a24.h">Ebook Reader</h4><p data-i18n="a24.p">E-book reader with library management, bookmarks, reading progress, night mode and font customization.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/FlutterEbookApp-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="web"><h4 data-i18n="a25.h">Word Hunt Dictionary</h4><p data-i18n="a25.p">Interactive dictionary web app with word search, definitions, synonyms, pronunciation and etymology.</p><div class="t"><span>React</span><span>API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/word-hunt-react-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a26.h">Movies App</h4><p data-i18n="a26.p">Movie discovery app with trending films, detailed info, trailers, ratings and watchlist management.</p><div class="t"><span>Flutter</span><span>TMDB API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/movies-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a27.h">Amazon Clone</h4><p data-i18n="a27.p">E-commerce app with product listings, cart, checkout, order history and user authentication.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/AmazonCloneMaster" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a28.h">AuthPass Password Manager</h4><p data-i18n="a28.p">Secure password manager with AES encryption, auto-fill, password generator and cloud sync.</p><div class="t"><span>Flutter</span><span>Security</span></div><div class="l"><a href="https://github.com/AhmedElashry20/authpass-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a29.h">Water Reminder</h4><p data-i18n="a29.p">Health app with hydration tracking, customizable reminders, daily goals and intake statistics.</p><div class="t"><span>Flutter</span><span>Notifications</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Water-Reminder-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a30.h">Covid-19 Tracker</h4><p data-i18n="a30.p">Real-time COVID-19 statistics dashboard with global and country data, charts and historical trends.</p><div class="t"><span>Flutter</span><span>REST API</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Covid-App-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a31.h">Photo App</h4><p data-i18n="a31.p">Photo capture and editing app with filters, cropping, gallery management and sharing.</p><div class="t"><span>Flutter</span><span>Camera</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Photo-App-Project-Flutter-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a32.h">Best Flutter UI Templates</h4><p data-i18n="a32.p">Collection of UI templates and components showcasing advanced Flutter design patterns.</p><div class="t"><span>Flutter</span><span>UI/UX</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Best-Flutter-UI-Templates-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="web enterprise"><h4 data-i18n="a33.h">ICORE ERP</h4><p data-i18n="a33.p">Cloud-based ERP SaaS platform with multi-tenant architecture and modules for accounting, inventory and HR.</p><div class="t"><span>Web App</span><span>ERP</span><span>SaaS</span></div><div class="l"><a href="https://icoreerp.com" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="web enterprise erp"><h4 data-i18n="a34.h">Bin Rabie Courier Management</h4><p data-i18n="a34.p">Enterprise courier dashboard with fleet tracking, delivery analytics and performance metrics.</p><div class="t"><span>Web App</span><span>Dashboard</span><span>Enterprise</span></div><div class="l"><a href="https://binrabiee.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a35.h">Flutter Example Apps</h4><p data-i18n="a35.p">Curated collection of Flutter example applications demonstrating best practices and design patterns.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/FlutterExampleApps-master" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a36.h">Awesome Open Source Flutter</h4><p data-i18n="a36.p">Collection of open-source Flutter apps and packages for reference and learning.</p><div class="t"><span>Flutter</span><span>Open Source</span></div><div class="l"><a href="https://github.com/AhmedElashry20/awesome-open-source-flutter-apps-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="mobile"><h4 data-i18n="a37.h">Flutter Dev</h4><p data-i18n="a37.p">Flutter development playground with experimental widgets, animations and architecture examples.</p><div class="t"><span>Flutter</span><span>Dart</span></div><div class="l"><a href="https://github.com/AhmedElashry20/Flutter_Dev-main" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
+<div class="arc" data-category="enterprise"><h4 data-i18n="a38.h">FixHelp System</h4><p data-i18n="a38.p">Complete home services management system with customer app, provider app and admin dashboard.</p><div class="t"><span>Flutter</span><span>Firebase</span></div><div class="l"><a href="https://github.com/AhmedElashry20/fixhelp-system" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></div></div>
 </div>
 </div>
 
@@ -527,8 +568,8 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <section class="sec" id="skills">
 <div class="wrap">
 <div class="sec-head reveal">
-<h2>Skills &amp; Stack</h2>
-<p>The tools I reach for every day</p>
+<h2 data-i18n="sk.h2">Skills &amp; Stack</h2>
+<p data-i18n="sk.sub">The tools I reach for every day</p>
 </div>
 <div class="sk-grid reveal">
 <div class="sk-tile"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
@@ -571,45 +612,45 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <section class="sec" id="experience">
 <div class="wrap">
 <div class="sec-head reveal">
-<h2>Career Journey</h2>
-<p>8+ years across 6 companies and 3 countries</p>
+<h2 data-i18n="exp.h2">Career Journey</h2>
+<p data-i18n="exp.sub">8+ years across 6 companies and 3 countries</p>
 </div>
 <div class="exp">
 
 <div class="exp-row reveal">
 <div class="exp-num">01</div>
-<div class="exp-id"><span class="now">Current</span><h3>Bin Rabie Holding Group</h3><div class="role">Senior Full-Stack Developer &amp; IT Manager</div><div class="when">Riyadh, KSA &middot; Dec 2025 — Present</div></div>
-<div class="exp-det"><p>Leading mobile &amp; web development across 4 subsidiaries. Built an ERP replacing 3 legacy systems, detected and neutralized a cyber intrusion, and migrated to AWS with Docker &mdash; cutting costs 35%.</p><div class="exp-tags"><span>Node.js</span><span>PostgreSQL</span><span>React</span><span>Flutter</span><span>AWS</span><span>Docker</span></div><div class="work-links"><a href="https://binrabiegroup.sa" target="_blank" rel="noopener">Live Site</a></div></div>
+<div class="exp-id"><span class="now" data-i18n="e.now">Current</span><h3 data-i18n="x0.t">Bin Rabie Holding Group</h3><div class="role" data-i18n="e0.r">Senior Full-Stack Developer &amp; IT Manager</div><div class="when" data-i18n="e0.w">Riyadh, KSA &middot; Dec 2025 — Present</div></div>
+<div class="exp-det"><p data-i18n="e0.d">Leading mobile &amp; web development across 4 subsidiaries. Built an ERP replacing 3 legacy systems, detected and neutralized a cyber intrusion, and migrated to AWS with Docker &mdash; cutting costs 35%.</p><div class="exp-tags"><span>Node.js</span><span>PostgreSQL</span><span>React</span><span>Flutter</span><span>AWS</span><span>Docker</span></div><div class="work-links"><a href="https://binrabiegroup.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
 </div>
 
 <div class="exp-row reveal">
 <div class="exp-num">02</div>
-<div class="exp-id"><h3>Sumo Software — سمو للبرمجيات</h3><div class="role">Senior Flutter Developer &amp; Full-Stack Engineer</div><div class="when">KSA &middot; Oct 2024 — Oct 2025</div></div>
-<div class="exp-det"><p>Led development of 8+ mobile apps rated 4.7+. Designed microservices handling 50K+ concurrent users, cut crash rate from 2.3% to 0.1%, and mentored 4 developers &mdash; 60% fewer bug reports.</p><div class="exp-tags"><span>Flutter</span><span>Dart</span><span>Node.js</span><span>Firebase</span><span>AWS</span><span>AI</span></div><div class="work-links"><a href="https://sumosoft.sa" target="_blank" rel="noopener">Live Site</a></div></div>
+<div class="exp-id"><h3 data-i18n="x1.t">Sumo Software — سمو للبرمجيات</h3><div class="role" data-i18n="e1.r">Senior Flutter Developer &amp; Full-Stack Engineer</div><div class="when" data-i18n="e1.w">KSA &middot; Oct 2024 — Oct 2025</div></div>
+<div class="exp-det"><p data-i18n="e1.d">Led development of 8+ mobile apps rated 4.7+. Designed microservices handling 50K+ concurrent users, cut crash rate from 2.3% to 0.1%, and mentored 4 developers &mdash; 60% fewer bug reports.</p><div class="exp-tags"><span>Flutter</span><span>Dart</span><span>Node.js</span><span>Firebase</span><span>AWS</span><span>AI</span></div><div class="work-links"><a href="https://sumosoft.sa" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
 </div>
 
 <div class="exp-row reveal">
 <div class="exp-num">03</div>
-<div class="exp-id"><h3>HelpTK</h3><div class="role">Flutter Developer &amp; Full-Stack Engineer</div><div class="when">KSA &middot; Jun 2023 — Sep 2024</div></div>
-<div class="exp-det"><p>Built helptk.com from scratch for 50+ clients. Developed Qadir VIP ride-hailing (5K+ rides/month) and FixGo home services at 92% satisfaction. Integrated MADA &amp; Apple Pay.</p><div class="exp-tags"><span>Flutter</span><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>POS</span></div><div class="work-links"><a href="https://helptk.com/home" target="_blank" rel="noopener">Live Site</a></div></div>
+<div class="exp-id"><h3 data-i18n="x2.t">HelpTK</h3><div class="role" data-i18n="e2.r">Flutter Developer &amp; Full-Stack Engineer</div><div class="when" data-i18n="e2.w">KSA &middot; Jun 2023 — Sep 2024</div></div>
+<div class="exp-det"><p data-i18n="e2.d">Built helptk.com from scratch for 50+ clients. Developed Qadir VIP ride-hailing (5K+ rides/month) and FixGo home services at 92% satisfaction. Integrated MADA &amp; Apple Pay.</p><div class="exp-tags"><span>Flutter</span><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>POS</span></div><div class="work-links"><a href="https://helptk.com/home" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
 </div>
 
 <div class="exp-row reveal">
 <div class="exp-num">04</div>
-<div class="exp-id"><h3>Gomla &amp; Bas — جملة وبس</h3><div class="role">Full-Stack Developer</div><div class="when">Egypt &middot; Apr 2022 — May 2023</div></div>
-<div class="exp-det"><p>Built a B2B wholesale platform linking 500+ suppliers with 2,000+ retailers. Eliminated 95% of stock issues with real-time sync and integrated Fawry &amp; Vodafone Cash for 10K+ monthly transactions.</p><div class="exp-tags"><span>React</span><span>Node.js</span><span>Flutter</span><span>MongoDB</span><span>Redis</span></div><div class="work-links"><a href="https://gomlabasapp.com" target="_blank" rel="noopener">Live Site</a></div></div>
+<div class="exp-id"><h3 data-i18n="x3.t">Gomla &amp; Bas — جملة وبس</h3><div class="role" data-i18n="e3.r">Full-Stack Developer</div><div class="when" data-i18n="e3.w">Egypt &middot; Apr 2022 — May 2023</div></div>
+<div class="exp-det"><p data-i18n="e3.d">Built a B2B wholesale platform linking 500+ suppliers with 2,000+ retailers. Eliminated 95% of stock issues with real-time sync and integrated Fawry &amp; Vodafone Cash for 10K+ monthly transactions.</p><div class="exp-tags"><span>React</span><span>Node.js</span><span>Flutter</span><span>MongoDB</span><span>Redis</span></div><div class="work-links"><a href="https://gomlabasapp.com" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
 </div>
 
 <div class="exp-row reveal">
 <div class="exp-num">05</div>
-<div class="exp-id"><h3>Italy — International Experience</h3><div class="role">Freelance Software Developer</div><div class="when">Italy &middot; 2020 — Apr 2022</div></div>
-<div class="exp-det"><p>Freelanced for clients across Europe &amp; MENA on 10+ projects, including CasaKey &mdash; a smart rental platform with IoT for 50+ properties. Reached Italian B1 and earned 8+ certifications.</p><div class="exp-tags"><span>Flutter</span><span>React</span><span>Firebase</span><span>IoT</span></div></div>
+<div class="exp-id"><h3 data-i18n="x4.t">Italy — International Experience</h3><div class="role" data-i18n="e4.r">Freelance Software Developer</div><div class="when" data-i18n="e4.w">Italy &middot; 2020 — Apr 2022</div></div>
+<div class="exp-det"><p data-i18n="e4.d">Freelanced for clients across Europe &amp; MENA on 10+ projects, including CasaKey &mdash; a smart rental platform with IoT for 50+ properties. Reached Italian B1 and earned 8+ certifications.</p><div class="exp-tags"><span>Flutter</span><span>React</span><span>Firebase</span><span>IoT</span></div></div>
 </div>
 
 <div class="exp-row reveal">
 <div class="exp-num">06</div>
-<div class="exp-id"><h3>Domina Coral Bay</h3><div class="role">Junior Software Developer</div><div class="when">Egypt &middot; 2018 — 2020</div></div>
-<div class="exp-det"><p>Built Android apps for hospitality serving 1,000+ daily guests, automated check-in to halve wait times, and shipped web dashboards for occupancy &amp; revenue tracking.</p><div class="exp-tags"><span>Kotlin</span><span>Java</span><span>React</span><span>Node.js</span><span>Android</span></div><div class="work-links"><a href="https://dominacoralbayelsokhna.com" target="_blank" rel="noopener">Live Site</a></div></div>
+<div class="exp-id"><h3 data-i18n="x5.t">Domina Coral Bay</h3><div class="role" data-i18n="e5.r">Junior Software Developer</div><div class="when" data-i18n="e5.w">Egypt &middot; 2018 — 2020</div></div>
+<div class="exp-det"><p data-i18n="e5.d">Built Android apps for hospitality serving 1,000+ daily guests, automated check-in to halve wait times, and shipped web dashboards for occupancy &amp; revenue tracking.</p><div class="exp-tags"><span>Kotlin</span><span>Java</span><span>React</span><span>Node.js</span><span>Android</span></div><div class="work-links"><a href="https://dominacoralbayelsokhna.com" target="_blank" rel="noopener" data-i18n="l.live">Live Site</a></div></div>
 </div>
 
 </div>
@@ -620,24 +661,24 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <section class="sec impact-band" id="impact">
 <div class="wrap">
 <div class="sec-head reveal">
-<h2>Measured Impact</h2>
-<p>Numbers taken straight from production systems I built</p>
+<h2 data-i18n="imp.h2">Measured Impact</h2>
+<p data-i18n="imp.sub">Numbers taken straight from production systems I built</p>
 </div>
 <div class="imp-grid reveal">
-<div class="imp"><div class="big">2.3% &#8594; 0.1%</div><p>App crash rate reduced across 8+ published Flutter apps.</p></div>
-<div class="imp"><div class="big">&minus;35%</div><p>Infrastructure cost cut by migrating to AWS with Docker.</p></div>
-<div class="imp"><div class="big">50K+</div><p>Concurrent users handled by the microservices I designed.</p></div>
-<div class="imp"><div class="big">&minus;60%</div><p>Fewer bug reports after mentoring and code-review process.</p></div>
+<div class="imp"><div class="big">2.3% &#8594; 0.1%</div><p data-i18n="i1">App crash rate reduced across 8+ published Flutter apps.</p></div>
+<div class="imp"><div class="big">&minus;35%</div><p data-i18n="i2">Infrastructure cost cut by migrating to AWS with Docker.</p></div>
+<div class="imp"><div class="big">50K+</div><p data-i18n="i3">Concurrent users handled by the microservices I designed.</p></div>
+<div class="imp"><div class="big">&minus;60%</div><p data-i18n="i4">Fewer bug reports after mentoring and code-review process.</p></div>
 </div>
 <div class="reveal">
-<div class="trust-t">Companies I've built for</div>
+<div class="trust-t" data-i18n="imp.trust">Companies I've built for</div>
 <div class="logos">
-<a class="logo" href="https://binrabiegroup.sa" target="_blank" rel="noopener"><div class="ln">Bin Rabie Holding</div><div class="lc">Riyadh, KSA</div></a>
-<a class="logo" href="https://sumosoft.sa" target="_blank" rel="noopener"><div class="ln">Sumo Software</div><div class="lc">KSA</div></a>
-<a class="logo" href="https://helptk.com/home" target="_blank" rel="noopener"><div class="ln">HelpTK</div><div class="lc">KSA</div></a>
-<a class="logo" href="https://qadir.sa" target="_blank" rel="noopener"><div class="ln">Qadir</div><div class="lc">App Store</div></a>
-<a class="logo" href="https://gomlabasapp.com" target="_blank" rel="noopener"><div class="ln">Gomla &amp; Bas</div><div class="lc">Egypt</div></a>
-<a class="logo" href="https://dominacoralbayelsokhna.com" target="_blank" rel="noopener"><div class="ln">Domina Coral Bay</div><div class="lc">Egypt</div></a>
+<a class="logo" href="https://binrabiegroup.sa" target="_blank" rel="noopener"><div class="ln">Bin Rabie Holding</div><div class="lc" data-i18n="lc.riyadh">Riyadh, KSA</div></a>
+<a class="logo" href="https://sumosoft.sa" target="_blank" rel="noopener"><div class="ln">Sumo Software</div><div class="lc" data-i18n="lc.ksa">KSA</div></a>
+<a class="logo" href="https://helptk.com/home" target="_blank" rel="noopener"><div class="ln">HelpTK</div><div class="lc" data-i18n="lc.ksa">KSA</div></a>
+<a class="logo" href="https://qadir.sa" target="_blank" rel="noopener"><div class="ln">Qadir</div><div class="lc" data-i18n="lc.appstore">App Store</div></a>
+<a class="logo" href="https://gomlabasapp.com" target="_blank" rel="noopener"><div class="ln">Gomla &amp; Bas</div><div class="lc" data-i18n="lc.egypt">Egypt</div></a>
+<a class="logo" href="https://dominacoralbayelsokhna.com" target="_blank" rel="noopener"><div class="ln">Domina Coral Bay</div><div class="lc" data-i18n="lc.egypt">Egypt</div></a>
 </div>
 </div>
 </div>
@@ -647,52 +688,52 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <section class="sec" id="contact">
 <div class="wrap">
 <div class="sec-head reveal">
-<h2>Let's work together</h2>
-<p>Have a project in mind? Let's build something that ships</p>
+<h2 data-i18n="ct.h2">Let's work together</h2>
+<p data-i18n="ct.sub">Have a project in mind? Let's build something that ships</p>
 </div>
 <div class="contact-grid">
 <div class="reveal">
 <div class="clinks">
 <a href="mailto:ahmedmoustafaelashry@gmail.com" class="clink">
 <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-<span><span class="cl">Email</span><span class="cv">ahmedmoustafaelashry@gmail.com</span></span>
+<span><span class="cl" data-i18n="ct.email">Email</span><span class="cv">ahmedmoustafaelashry@gmail.com</span></span>
 </a>
 <a href="tel:+966532241447" class="clink">
 <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-<span><span class="cl">Phone / WhatsApp</span><span class="cv">+966 532 241 447</span></span>
+<span><span class="cl" data-i18n="ct.phone">Phone / WhatsApp</span><span class="cv">+966 532 241 447</span></span>
 </a>
 <a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener" class="clink">
 <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.06c-3.09.67-3.74-1.3-3.74-1.3-.51-1.3-1.24-1.65-1.24-1.65-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.13-1.44 3.06-1.14 3.06-1.14.62 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.76 1.02.76 2.06v3.06c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5z"/></svg></span>
-<span><span class="cl">GitHub</span><span class="cv">AhmedElashry20</span></span>
+<span><span class="cl" data-i18n="ct.gh">GitHub</span><span class="cv">AhmedElashry20</span></span>
 </a>
 <a href="https://linkedin.com/in/ahmed-elashry-a227a5319" target="_blank" rel="noopener" class="clink">
 <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.5 8.65 21 11 21 14.2V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.04 0-2.35 1.59-2.35 3.23V21H9z"/></svg></span>
-<span><span class="cl">LinkedIn</span><span class="cv">ahmed-elashry</span></span>
+<span><span class="cl" data-i18n="ct.li">LinkedIn</span><span class="cv">ahmed-elashry</span></span>
 </a>
 <div class="clink">
 <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-<span><span class="cl">Location</span><span class="cv">Riyadh, Saudi Arabia</span></span>
+<span><span class="cl" data-i18n="ct.loc">Location</span><span class="cv" data-i18n="ct.locv">Riyadh, Saudi Arabia</span></span>
 </div>
 </div>
-<div class="avail"><span class="d"></span> Available for freelance &amp; full-time opportunities</div>
+<div class="avail"><span class="d"></span> <span data-i18n="ct.avail">Available for freelance &amp; full-time opportunities</span></div>
 </div>
 
 <form class="cform reveal" id="contact-form">
-<input type="text" name="name" placeholder="Your Name" required/>
-<input type="email" name="email" placeholder="Your Email" required/>
+<input type="text" name="name" placeholder="Your Name" data-i18n-ph="fm.name" required/>
+<input type="email" name="email" placeholder="Your Email" data-i18n-ph="fm.email" required/>
 <select name="type" required>
-<option value="" disabled selected>Project Type</option>
-<option>Mobile App (Flutter)</option>
-<option>Web Application (React)</option>
-<option>Full-Stack Development</option>
-<option>Backend / API</option>
-<option>Cloud / DevOps</option>
-<option>Consulting</option>
-<option>Other</option>
+<option value="" disabled selected data-i18n="fm.type">Project Type</option>
+<option data-i18n="fm.o1">Mobile App (Flutter)</option>
+<option data-i18n="fm.o2">Web Application (React)</option>
+<option data-i18n="fm.o3">Full-Stack Development</option>
+<option data-i18n="fm.o4">Backend / API</option>
+<option data-i18n="fm.o5">Cloud / DevOps</option>
+<option data-i18n="fm.o6">Consulting</option>
+<option data-i18n="fm.o7">Other</option>
 </select>
-<textarea name="message" placeholder="Tell me about your project..." required></textarea>
-<button type="submit">Send Message</button>
-<p class="note" style="text-align:center">Opens your email client with the message ready to send.</p>
+<textarea name="message" placeholder="Tell me about your project..." data-i18n-ph="fm.msg" required></textarea>
+<button type="submit" data-i18n="fm.send">Send Message</button>
+<p class="note" style="text-align:center" data-i18n="fm.hint">Opens your email client with the message ready to send.</p>
 </form>
 </div>
 </div>
@@ -703,29 +744,29 @@ body::-webkit-scrollbar-thumb:hover{background:var(--green-d)}
 <div class="wrap">
 <div class="foot-grid">
 <div class="foot-brand">
-<a href="#" class="nav-logo">Ahmed <em>Elashry</em></a>
-<p>Senior Flutter Developer &amp; Full-Stack Engineer building production apps that scale. Based in Riyadh, working worldwide.</p>
+<a href="#" class="nav-logo" data-i18n="nav.logo">Ahmed <em>Elashry</em></a>
+<p data-i18n="foot.about">Senior Flutter Developer &amp; Full-Stack Engineer building production apps that scale. Based in Riyadh, working worldwide.</p>
 </div>
 <div class="foot-col">
-<h5>Navigate</h5>
+<h5 data-i18n="foot.nav">Navigate</h5>
 <ul>
-<li><a href="#services">Services</a></li>
-<li><a href="#works">Works</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#contact">Contacts</a></li>
+<li><a href="#services" data-i18n="nav.services">Services</a></li>
+<li><a href="#works" data-i18n="nav.works">Works</a></li>
+<li><a href="#experience" data-i18n="nav.exp">Experience</a></li>
+<li><a href="#contact" data-i18n="nav.contact">Contacts</a></li>
 </ul>
 </div>
 <div class="foot-col">
-<h5>Resources</h5>
+<h5 data-i18n="foot.res">Resources</h5>
 <ul>
-<li><a href="Ahmed_Elashry_CV.pdf" download>Download CV</a></li>
-<li><a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener">GitHub</a></li>
+<li><a href="Ahmed_Elashry_CV.pdf" download class="cv-link" data-i18n="foot.cv">Download CV</a></li>
+<li><a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener" data-i18n="l.gh2">GitHub</a></li>
 <li><a href="https://linkedin.com/in/ahmed-elashry-a227a5319" target="_blank" rel="noopener">LinkedIn</a></li>
 </ul>
 </div>
 </div>
 <div class="foot-bot">
-<p>&copy; 2026 Ahmed Elashry. All rights reserved.</p>
+<p data-i18n="foot.copy">&copy; 2026 Ahmed Elashry. All rights reserved.</p>
 <div class="socials">
 <a href="https://github.com/AhmedElashry20" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.06c-3.09.67-3.74-1.3-3.74-1.3-.51-1.3-1.24-1.65-1.24-1.65-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.13-1.44 3.06-1.14 3.06-1.14.62 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.76 1.02.76 2.06v3.06c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5z"/></svg></a>
 <a href="https://linkedin.com/in/ahmed-elashry-a227a5319" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.5 8.65 21 11 21 14.2V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.04 0-2.35 1.59-2.35 3.23V21H9z"/></svg></a>
@@ -857,6 +898,63 @@ document.getElementById('contact-form').addEventListener('submit',function(e){
       body='Name: '+who+'\nEmail: '+el.email.value+'\nProject type: '+kind+'\n\n'+el.message.value;
   window.location.href='mailto:ahmedmoustafaelashry@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 });
+
+
+
+/* ---------- i18n: EN <-> AR ---------- */
+var AR={"nav.logo":"أحمد <em>العشري</em>","nav.services":"الخدمات","nav.works":"الأعمال","nav.skills":"المهارات","nav.exp":"الخبرات","nav.contact":"تواصل","hero.badge":"مطوّر Flutter أول","hero.h1":"أبني تطبيقات<br/><span class=\"c\">موبايل وويب</span><br/>جاهزة للإنتاج.","hero.desc":"أصمّم وأبرمج منتجات متعددة المنصّات تحافظ على سرعتها تحت الضغط — أكثر من 8 سنوات، و38+ تطبيقاً، و100 ألف+ مستخدم نشط في التقنية المالية والخدمات اللوجستية والتجارة الإلكترونية.","hero.cta":"تعال نتكلّم!","hero.s1":"سنوات خبرة","hero.s2":"مشروعاً في 3 دول","hero.s3":"شهادة احترافية","svc1.t":"تطبيقات الموبايل","svc1.d":"تطبيقات Flutter متعددة المنصّات بمعمارية نظيفة وأداء يقارب الأصلي، مع مزامنة تعمل دون اتصال ومزايا لحظية.","svc1.c":"24 مشروعاً","svc2.t":"تطوير متكامل","svc2.d":"خدمات REST وGraphQL قابلة للتوسّع على Node.js مع PostgreSQL وPrisma، وتخزين مؤقت ومصادقة ومعمارية خدمات مصغّرة.","svc2.c":"14 مشروعاً","svc3.t":"الواجهات الأمامية","svc3.d":"لوحات تحكم ومنصّات متجاوبة بـ React وTypeScript وNext.js — مع SSR وأنظمة تصميم ودعم تطبيقات الويب التقدّمية.","svc3.c":"11 مشروعاً","svc4.t":"السحابة وDevOps","svc4.d":"بنية تحتية على AWS وFirebase، وDocker، وخطوط CI/CD، ومراقبة، ونشر مُحسَّن التكلفة.","svc4.c":"9 مشاريع","intro.label":"تعريف","intro.h2":"أهلاً! أنا أحمد<br/>العشري","intro.quote":"كل منتج عظيم يبدأ بكود يستطيع غيرك قراءته بعد سنة","intro.p1":"أنا مطوّر Flutter أول ومهندس تطوير متكامل، بخبرة تتجاوز 8 سنوات في تصميم وبناء وإطلاق تطبيقات موبايل وويب عالية الجودة في التقنية المالية والخدمات اللوجستية والتجارة الإلكترونية وتخطيط موارد المؤسسات.","intro.p2":"أحمل 30 شهادة احترافية من Google وAWS وMeta وStanford وHarvard. يهمّني الكود النظيف والأداء القابل للقياس، وتوظيف الذكاء الاصطناعي لتوسيع ما تستطيع البرمجيات فعله — خفّضت معدّل تعطّل التطبيقات من 2.3% إلى 0.1%، وتصدّيت لاختراق سيبراني فعلي في بيئة الإنتاج.","intro.m1l":"المسمّى الوظيفي","intro.m1v":"مطوّر تطبيقات متكامل أول ومدير تقنية المعلومات","intro.m2l":"الموقع","intro.m2v":"الرياض، المملكة العربية السعودية","intro.m3l":"التعليم","intro.m3v":"بكالوريوس علوم حاسب — جامعة طنطا، 2018 (جيد جداً)","intro.m4l":"اللغات","intro.m4v":"العربية (اللغة الأم) · الإنجليزية (C1 متقدّم) · الإيطالية (B1)","intro.cv":"حمّل السيرة الذاتية","foot.cv":"تحميل السيرة الذاتية","works.h2":"أحدث الأعمال","works.sub":"حلول متقنة لتجربة رقمية متكاملة","w.qadir.s":"متاح على App Store","w.qadir.d":"منصّة نقل VIP فاخرة صدرت كتطبيقين على App Store — للراكب وللسائق — مع تتبّع GPS لحظي واحتساب الأجرة ودمج وسائل دفع متعددة.","w.helptk.d":"منصّة حلول تقنية معلومات تقدّم تطبيقات ويب وموبايل وأنظمة تجارة إلكترونية وحلول نقاط بيع ودعماً فنياً على مدار الساعة لأكثر من 50 عميلاً في السعودية.","works.all":"كل المشاريع","works.note":"* بعض المشاريع تخضع لاتفاقيات عدم إفشاء ولا يمكن نشرها هنا،<br/>لو حابب تشوف المزيد، <a href=\"#contact\">تواصل معي</a>","f.all":"الكل","f.ios":"App Store","f.mobile":"موبايل","f.web":"ويب","f.erp":"ERP","f.ent":"مؤسسات","sk.h2":"المهارات والتقنيات","sk.sub":"الأدوات التي أستخدمها يومياً","exp.h2":"المسيرة المهنية","exp.sub":"أكثر من 8 سنوات عبر 6 شركات و3 دول","e.now":"حالياً","e0.r":"مطوّر تطبيقات متكامل أول ومدير تقنية المعلومات","e0.w":"الرياض، السعودية · ديسمبر 2025 — حتى الآن","e0.d":"أقود تطوير الموبايل والويب عبر 4 شركات تابعة. بنيت نظام ERP حلّ محل 3 أنظمة قديمة، واكتشفت اختراقاً سيبرانياً وتصدّيت له، ونقلت البنية إلى AWS مع Docker — بخفض التكاليف 35%.","e1.r":"مطوّر Flutter أول ومهندس تطوير متكامل","e1.w":"السعودية · أكتوبر 2024 — أكتوبر 2025","e1.d":"قدت تطوير أكثر من 8 تطبيقات موبايل بتقييم 4.7+. صمّمت خدمات مصغّرة تتحمّل 50 ألف+ مستخدم متزامن، وخفّضت معدّل التعطّل من 2.3% إلى 0.1%، ودرّبت 4 مطوّرين — بانخفاض 60% في بلاغات الأخطاء.","e2.r":"مطوّر Flutter ومهندس تطوير متكامل","e2.w":"السعودية · يونيو 2023 — سبتمبر 2024","e2.d":"بنيت helptk.com من الصفر لأكثر من 50 عميلاً. طوّرت تطبيق قدير للنقل الفاخر (5 آلاف+ رحلة شهرياً) وFixGo لخدمات المنازل بنسبة رضا 92%. دمجت مدى وApple Pay.","e3.r":"مطوّر تطبيقات متكامل","e3.w":"مصر · أبريل 2022 — مايو 2023","e3.d":"بنيت منصّة جملة B2B تربط 500+ مورّد بـ2000+ تاجر تجزئة. قضيت على 95% من مشاكل المخزون بمزامنة لحظية، ودمجت فوري وفودافون كاش لأكثر من 10 آلاف عملية شهرياً.","e4.r":"مطوّر برمجيات مستقل","e4.w":"إيطاليا · 2020 — أبريل 2022","e4.d":"عملت بشكل مستقل مع عملاء في أوروبا والشرق الأوسط على أكثر من 10 مشاريع، منها CasaKey — منصّة تأجير ذكية بإنترنت الأشياء لأكثر من 50 عقاراً. وصلت للمستوى B1 في الإيطالية وحصلت على 8+ شهادات.","e5.r":"مطوّر برمجيات مبتدئ","e5.w":"مصر · 2018 — 2020","e5.d":"بنيت تطبيقات أندرويد للضيافة تخدم 1000+ ضيف يومياً، وأتمتت تسجيل الوصول لتقليل وقت الانتظار للنصف، وأطلقت لوحات ويب لتتبّع الإشغال والإيرادات.","imp.h2":"أثر قابل للقياس","imp.sub":"أرقام مأخوذة مباشرة من أنظمة إنتاج بنيتها","i1":"انخفاض معدّل تعطّل التطبيقات عبر أكثر من 8 تطبيقات Flutter منشورة.","i2":"خفض تكلفة البنية التحتية بالانتقال إلى AWS مع Docker.","i3":"مستخدم متزامن تتحمّلهم الخدمات المصغّرة التي صمّمتها.","i4":"انخفاض في بلاغات الأخطاء بعد التدريب ومراجعات الكود.","imp.trust":"شركات عملت معها","lc.riyadh":"الرياض، السعودية","lc.appstore":"App Store","ct.h2":"لنعمل معاً","ct.sub":"عندك مشروع في بالك؟ خلّينا نبني شيئاً يصل للإنتاج","ct.email":"البريد الإلكتروني","ct.phone":"الهاتف / واتساب","ct.gh":"GitHub","ct.li":"LinkedIn","ct.loc":"الموقع","ct.locv":"الرياض، المملكة العربية السعودية","ct.avail":"متاح للعمل الحر والوظائف بدوام كامل","fm.name":"الاسم","fm.email":"البريد الإلكتروني","fm.type":"نوع المشروع","fm.o1":"تطبيق موبايل (Flutter)","fm.o2":"تطبيق ويب (React)","fm.o3":"تطوير متكامل","fm.o4":"الواجهة الخلفية / API","fm.o5":"السحابة / DevOps","fm.o6":"استشارات","fm.o7":"أخرى","fm.msg":"احكيلي عن مشروعك...","fm.send":"إرسال الرسالة","fm.hint":"يفتح برنامج البريد لديك والرسالة جاهزة للإرسال.","foot.about":"مطوّر Flutter أول ومهندس تطوير متكامل، أبني تطبيقات إنتاجية قابلة للتوسّع. مقيم في الرياض وأعمل مع عملاء حول العالم.","foot.nav":"تنقّل","foot.res":"مصادر","foot.copy":"© 2026 أحمد العشري. جميع الحقوق محفوظة.","a0.h":"HelpTK — منصّة حلول تقنية","a0.p":"تطبيقات ويب وموبايل، وأنظمة تجارة إلكترونية، وحلول نقاط بيع، وتصميم واجهات، وإدارة قواعد بيانات، ودعم على مدار الساعة.","a1.h":"مجموعة بن ربيع القابضة","a1.p":"موقع مؤسسي للمجموعة القابضة بتصميم عصري ودعم متعدد اللغات وتخطيط متجاوب.","a2.h":"قدير — نقل VIP","a2.p":"منصّة نقل فاخرة على App Store بتطبيقَي الراكب والسائق مع تتبّع GPS لحظي ودفع متعدد.","a3.h":"بن ربيع إكسبرس","a3.p":"موقع خدمة توصيل سريع مع تتبّع الطلبات ودليل الفروع وكتالوج الخدمات.","a4.h":"نظام إدارة الشحن","a4.p":"إدارة شحن متكاملة مع تتبّع الشحنات وإسناد السائقين وتحسين المسارات والتحليلات.","a5.h":"بن ربيع فود","a5.p":"موقع شركة توزيع أغذية مع كتالوج منتجات ونظام طلبات وتتبّع التوصيل.","a6.h":"دوم لتأجير السيارات","a6.p":"منصّة تأجير سيارات مع تصفّح المركبات وإدارة الحجوزات ودمج الدفع.","a7.h":"FixGo لخدمات المنازل","a7.p":"تطبيق صيانة منزلية عند الطلب يربط المستخدمين بفنيّين موثّقين للسباكة والكهرباء والتنظيف.","a8.h":"مراقب أمن الأجهزة الطرفية","a8.p":"لوحة مراقبة أمنية لحظية للأجهزة الطرفية مع كشف التهديدات والتنبيهات وتقارير الامتثال.","a9.h":"تريبو للنقل","a9.p":"تطبيق نقل مع تتبّع لحظي وتقدير ذكي للأجرة ومحادثة داخل التطبيق ودفع متعدد.","a10.h":"WalletNow محفظة رقمية","a10.p":"تطبيق محفظة رقمية مع ربط الحسابات البنكية والتحويلات الفورية والدفع بـQR وسجل العمليات.","a11.h":"ShopX للتجارة الإلكترونية","a11.p":"تطبيق تجارة إلكترونية متكامل مع كتالوج المنتجات وإدارة السلة والدفع وتتبّع الطلبات.","a12.h":"بصيرة لتحليلات الذكاء الاصطناعي","a12.p":"منصّة ذكاء أعمال مدعومة بالذكاء الاصطناعي مع نمذجة تنبؤية ولوحات تحكم وتقارير آلية.","a13.h":"CasaKey للتأجير الذكي","a13.p":"إدارة تأجير ذكية بأقفال إنترنت الأشياء وتسجيل دخول وخروج آلي وتسعير بالتعلّم الآلي.","a14.h":"eChat للمراسلة","a14.p":"تطبيق مراسلة لحظي مع مكالمات فيديو WebRTC وتشفير طرف لطرف ومجموعات ومشاركة وسائط.","a15.h":"نظام بن ربيع ERP","a15.p":"نظام تخطيط موارد متكامل بوحدات للإدارة المالية والمخزون والموارد البشرية والمشتريات والتقارير.","a16.h":"FixHelp للموظفين","a16.p":"تطبيق مرافق لإدارة الموظفين مع إسناد المهام والجداول وتتبّع الأداء.","a17.h":"سمو","a17.p":"تطبيق تواصل اجتماعي مع ملفات شخصية ومشاركة محتوى وإشعارات وتفاعلات لحظية.","a18.h":"ديكتور لحجز الأطباء","a18.p":"تطبيق حجز مواعيد الأطباء مع البحث عن التخصصات وإدارة الجداول والطب عن بُعد والسجلات الصحية.","a19.h":"Fix للصيانة","a19.p":"تطبيق إدارة طلبات الصيانة مع تذاكر المهام وتتبّع الحالة وتوزيع الفنيين.","a20.h":"متتبّع المصروفات الشخصية","a20.p":"متتبّع مالي شخصي مع تصنيف المصروفات والرسوم البيانية والميزانيات وتحليل الإنفاق الشهري.","a21.h":"تطبيق الطقس","a21.p":"تطبيق توقّعات الطقس مع الحالة الحالية وتوقّعات 7 أيام والبحث بالموقع وأيقونات متحرّكة.","a22.h":"نسخة من يوتيوب","a22.p":"تطبيق بث فيديو مع بحث وتشغيل وقنوات وخلاصات توصيات.","a23.h":"نسخة من تويتر","a23.p":"تطبيق تواصل اجتماعي مع تغريدات وإعادة نشر وإعجابات ومتابعات وتحديث لحظي للخلاصة.","a24.h":"قارئ الكتب الإلكترونية","a24.p":"قارئ كتب مع إدارة المكتبة والعلامات المرجعية وتتبّع التقدّم والوضع الليلي وتخصيص الخط.","a25.h":"Word Hunt قاموس تفاعلي","a25.p":"تطبيق قاموس تفاعلي مع بحث الكلمات والتعريفات والمرادفات والنطق وأصل الكلمة.","a26.h":"تطبيق الأفلام","a26.p":"تطبيق اكتشاف أفلام مع الأكثر رواجاً والتفاصيل والمقاطع الدعائية والتقييمات وقائمة المشاهدة.","a27.h":"نسخة من أمازون","a27.p":"تطبيق تجارة إلكترونية مع عرض المنتجات والسلة والدفع وسجل الطلبات وتسجيل الدخول.","a28.h":"AuthPass لإدارة كلمات المرور","a28.p":"مدير كلمات مرور آمن بتشفير AES وملء تلقائي ومولّد كلمات مرور ومزامنة سحابية.","a29.h":"مذكّر شرب الماء","a29.p":"تطبيق صحي لتتبّع الترطيب مع تذكيرات مخصّصة وأهداف يومية وإحصاءات الاستهلاك.","a30.h":"متتبّع كوفيد-19","a30.p":"لوحة إحصاءات كوفيد-19 لحظية ببيانات عالمية وبحسب الدولة ورسوم بيانية واتجاهات تاريخية.","a31.h":"تطبيق الصور","a31.p":"تطبيق التقاط وتحرير صور مع فلاتر وقص وإدارة معرض ومشاركة.","a32.h":"قوالب واجهات Flutter","a32.p":"مجموعة قوالب ومكوّنات واجهات تعرض أنماط تصميم Flutter المتقدّمة.","a33.h":"ICORE ERP","a33.p":"منصّة ERP سحابية بنموذج SaaS بمعمارية متعددة المستأجرين ووحدات للمحاسبة والمخزون والموارد البشرية.","a34.h":"إدارة شحن بن ربيع","a34.p":"لوحة شحن مؤسسية مع تتبّع الأسطول وتحليلات التوصيل ومؤشرات الأداء.","a35.h":"أمثلة تطبيقات Flutter","a35.p":"مجموعة منتقاة من تطبيقات Flutter التوضيحية تعرض أفضل الممارسات وأنماط التصميم.","a36.h":"مشاريع Flutter مفتوحة المصدر","a36.p":"مجموعة من تطبيقات وحزم Flutter مفتوحة المصدر للرجوع إليها والتعلّم منها.","a37.h":"Flutter Dev","a37.p":"مساحة تجريب لتطوير Flutter مع عناصر واجهة تجريبية ورسوم متحرّكة وأمثلة معمارية.","a38.h":"نظام FixHelp","a38.p":"نظام إدارة خدمات منزلية متكامل بتطبيق للعميل وآخر لمقدّم الخدمة ولوحة تحكم إدارية.","l.live":"الموقع","l.gh2":"GitHub","l.store":"App Store","l.driver":"تطبيق السائق","l.priv":"خاص","w6.t":"HelpTK","x2.t":"HelpTK","w1.t":"قدير","w2.t":"بن ربيع القابضة","w3.t":"بن ربيع فود","w4.t":"أمن الأجهزة الطرفية","w5.t":"بن ربيع إكسبرس","x0.t":"مجموعة بن ربيع القابضة","x1.t":"سمو للبرمجيات","x3.t":"جملة وبس","x4.t":"إيطاليا — خبرة دولية","x5.t":"دومينا كورال باي","lc.ksa":"السعودية","lc.egypt":"مصر"};
+var EN={},CACHED=false;
+var htmlEl=document.documentElement,langBtn=document.getElementById('lang-btn');
+
+function cacheEN(){
+  if(CACHED)return;
+  [].forEach.call(document.querySelectorAll('[data-i18n]'),function(el){
+    EN[el.getAttribute('data-i18n')]=el.innerHTML;
+  });
+  [].forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(el){
+    EN['ph:'+el.getAttribute('data-i18n-ph')]=el.getAttribute('placeholder');
+  });
+  CACHED=true;
+}
+
+function applyLang(lang){
+  cacheEN();
+  var ar=lang==='ar';
+  htmlEl.setAttribute('lang',ar?'ar':'en');
+  htmlEl.setAttribute('dir',ar?'rtl':'ltr');
+  [].forEach.call(document.querySelectorAll('[data-i18n]'),function(el){
+    var k=el.getAttribute('data-i18n'),v=ar?AR[k]:EN[k];
+    if(v!=null)el.innerHTML=v;
+  });
+  [].forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(el){
+    var k=el.getAttribute('data-i18n-ph'),v=ar?AR[k]:EN['ph:'+k];
+    if(v!=null)el.setAttribute('placeholder',v);
+  });
+  /* the ALL PROJECTS button carries live state, so re-label from the open flag */
+  var g=document.getElementById('archive-grid'),open=g&&g.classList.contains('open');
+  allBtn.textContent=open?(ar?'إخفاء المشاريع':'HIDE PROJECTS'):(ar?'كل المشاريع':'ALL PROJECTS');
+  /* CV download points at the matching language */
+  [].forEach.call(document.querySelectorAll('.cv-link'),function(a){
+    a.setAttribute('href',ar?'Ahmed_Elashry_CV_AR.pdf':'Ahmed_Elashry_CV.pdf');
+  });
+  document.title=ar?'أحمد العشري — مطوّر Flutter أول ومهندس تطوير متكامل'
+                  :'Ahmed Elashry — Senior Flutter Developer & Full-Stack Engineer';
+  langBtn.textContent=ar?'EN':'العربية';
+  langBtn.setAttribute('lang',ar?'en':'ar');
+  try{localStorage.setItem('lang',lang)}catch(e){}
+}
+
+langBtn.addEventListener('click',function(){
+  applyLang(htmlEl.getAttribute('dir')==='rtl'?'en':'ar');
+});
+
+(function(){
+  var saved=null;
+  try{saved=localStorage.getItem('lang')}catch(e){}
+  if(!saved&&(navigator.language||'').toLowerCase().indexOf('ar')===0)saved='ar';
+  if(saved==='ar')applyLang('ar'); else cacheEN();
+})();
+
 
 })();
 </script>
