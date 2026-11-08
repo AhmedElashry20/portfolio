@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ahmed Elashry">
+  <rect width="64" height="64" rx="13" fill="#262626"/>
+  <path d="M8 6h4v52H8z" fill="#4ADE8A"/>
+  <text x="36" y="45" font-family="'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace" font-size="36" font-weight="700" fill="#4ADE8A" text-anchor="middle">A</text>
+</svg>
